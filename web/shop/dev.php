@@ -14,7 +14,7 @@
     <div ui-view="main"></div>
     <div ui-view="aside"></div>
     <script type="text/javascript">
-        WEB_SOCKET_SWF_LOCATION = "./js/web-socket-js-master/WebSocketMain.swf";
+        // WEB_SOCKET_SWF_LOCATION = "./js/web-socket-js-master/WebSocketMain.swf";
     </script>
     <script type="text/javascript" src="./js/require.js" data-main="./js/dev.js"></script>
 </body>

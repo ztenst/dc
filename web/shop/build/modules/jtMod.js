@@ -11,7 +11,7 @@ define(['jtMod_controller', 'jtMod_factory', 'jtMod_directive', 'ui-router'], fu
                    if(res.isLogin){
                        AuthService.setUser(res);
                        if (toState.name == 'login') {
-                            $state.go('index');
+                            $state.go('food');
                        }
                    }else{
                        if(toState.name != 'login' && toState.name != 'logout'){

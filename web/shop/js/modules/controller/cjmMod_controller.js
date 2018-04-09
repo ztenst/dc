@@ -1,12 +1,13 @@
 define(['angular'],function() {
     angular.module('cjmMod_controller',[])
     //首页
-    .controller('indexMainController',function($scope,interfaceIndex,$stateParams,websocket,resolve_desks,$log) {
-        function websocket_refresh(){
-            interfaceIndex.info($stateParams).then(function(obj) {
-                $scope.page.data = obj.data.data;
-            });
-        }
+    .controller('indexMainController',function($scope,interfaceIndex,$stateParams,websocket,resolve_desks,$log,$state) {
+        // function websocket_refresh(){
+        //     interfaceIndex.info($stateParams).then(function(obj) {
+        //         $scope.page.data = obj.data.data;
+        //     });
+        // }
+        $state.go('food');
         $scope.isall = function() {
             return !$stateParams.status || $stateParams.status == 0;
         }
@@ -42,11 +43,11 @@ define(['angular'],function() {
             $scope.page.opendesk_show = true;
         }
         //websocket
-        websocket.on('refreshIndexList',{
-            'scope' : $scope
-        },function(obj) {
-            websocket_refresh();
-        });
+        // websocket.on('refreshIndexList',{
+        //     'scope' : $scope
+        // },function(obj) {
+        //     websocket_refresh();
+        // });
     })
     //餐桌设置
     .controller('deskManageController',function($scope,interfaceDeskManage,$log,_) {
