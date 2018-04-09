@@ -54,12 +54,12 @@ class AuthController extends Controller
         }
         //没有绑定微信开放平台没有unionId数据 先用openId代替unionId
         $attributes = [
-            'unionid' => $data['unionId'],
+            'unionid' => $data['openId'],
             'nickname' => preg_replace('/\xEE[\x80-\xBF][\x80-\xBF]|\xEF[\x81-\x83][\x80-\xBF]/', '', $data['nickName']),
             'sex' => $data['gender'],
             'avatar' => $data['avatarUrl']
         ];
-        $user_member = UserMember::findByUnionid($data['unionId']);
+        $user_member = UserMember::findByUnionid($data['openId']);
         if($user_member === null) {
             $user_member = new UserMember();
         }
