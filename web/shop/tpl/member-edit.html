@@ -1,0 +1,29 @@
+<div class="close" ng-click="closeDialog()"></div>
+<div class="ele sex">
+    <span class="label-name f-ib">性别</span>
+    <div class="f-ib u-radio-group">
+        <div class="f-ib">
+            <label class="u-radio" for="r1">男</label>
+            <input id="r1" type="radio" name="sex" value="1" ng-model="info.sex"/>
+        </div>
+        <div class="f-ib">
+            <label class="u-radio" for="r2">女</label>
+            <input id="r2" type="radio" name="sex" value="2" ng-model="info.sex"/>
+        </div>
+    </div>
+</div>
+<div class="ele">
+    <span class="label-name f-ib">生日</span>
+    <span class="calendar f-ib text" onClick="WdatePicker({el:'birthday'})" >
+        <i class="iconfont icon-rili"></i>
+        <input type="text" id="birthday" ng-model="info.birthday" class="u-ipt u-ipt-form" style="border: none;">
+    </span>
+</div>
+<div class="zhuo-opt-btns">
+    <a ng-click="closeDialog()" class="u-btn u-btn-dialog u-btn-d1">
+        <i class="iconfont icon-closed2"></i>取消
+    </a>
+    <a ng-click="submitInfo()" class="u-btn u-btn-dialog u-btn-d2">
+        <i class="iconfont icon-ok"></i>确定
+    </a>
+</div>

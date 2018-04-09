@@ -1,0 +1,13 @@
+<div class="bill-search f-cb">
+    <div class="ui-search-box f-fl">
+        <i class="iconfont icon-search"></i>
+        <input id="begin" type="text" placeholder="开始时间" value="{{stateParams.begin}}"/>
+        到
+        <i class="iconfont icon-search" style="left: auto;"></i>
+        <input id="end" type="text" placeholder="结束时间" value="{{stateParams.end}}">
+        <a ng-click="search()" class="u-btn u-btn-t2">搜索</a>
+    </div>
+    <div class="download-btn f-fr">
+        <a href="/api/shop/bill/list?download=1" class="u-btn u-btn-opt u-btn-m1">下载exel报表</a>
+    </div>
+</div>

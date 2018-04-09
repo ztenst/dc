@@ -1,0 +1,43 @@
+<div class="m-layer m-layer-show m-layer-dialog jiesuan-dialog">
+    <div class="lymask"></div>
+    <table class="lytable"><tbody><tr><td class="lytd">
+    <div class="lywrap">
+    <div class="lyct">
+        <div class="dialog">
+            <div class="nav-title f-cb">
+                <ul>
+                  <li class="item"><a ng-click="fn_discount()" ng-class="{'on':page.state == VALUES['discount']}">修改折扣</a></li>
+                  <li class="item"><a ng-click="fn_price()" ng-class="{'on':page.state == VALUES['price']}">修改价格</a></li>
+                </ul>
+            </div>
+            <div ng-if="page.state == VALUES['discount']">
+                <div class="jiesuan-opt">
+                    <div class="f-ib discount">
+                        <span>减价格</span>
+                        <input type="text" class="u-ipt u-ipt-s1" ng-model="page.diff" ng-change="fn_set_rate()" ng-keypress="numberValid($event)" style="padding-right:20px;"/>
+                        <i class="clear f-ib" ng-click="fn_clear()"></i>
+                    </div>
+                    <div class="space f-ib"></div> <div class="f-ib">
+                        <span>折扣</span>
+                        <input type="text" class="u-ipt u-ipt-s1" ng-model="page.rate" ng-change="fn_set_diff()" ng-keypress="numberValid($event)"/>
+                        <span>%</span>
+                    </div>
+                </div>
+                <div class="jiesuan-price">折后价格：<span class="high f-ib">￥{{fn_cal_discount_price()}}</span></div>
+            </div>
+            <div class="jiesuan-opt" ng-if="page.state == VALUES['price']">
+                <div class="f-ib jiesuan">
+                    <span>结算价格</span>
+                    <input type="text" class="u-ipt u-ipt-s1 u-ipt-s1-lg" ng-model="page.tmpDiscountPrice" ng-keypress="numberValid($event)"/>
+                    <i class="clear f-ib" ng-click="fn_clear_tmp()"></i>
+                </div>
+            </div>
+            <div class="u-errormsg" style="position:absolute;margin-left:70px;" ng-if="fn_cal_discount_price() < 0">价格不能小于0</div>
+            <div class="jiesuan-opt-btns">
+                <a class="u-btn u-btn-dialog u-btn-d2" ng-click="fn_confirm()"><i class="iconfont icon-ok"></i>确定</a><a ng-click="fn_close()" class="u-btn u-btn-dialog u-btn-d1"><i class="iconfont icon-closed2"></i>取消</a>
+            </div>
+        </div>
+    </div>
+    </div></td></tr></tbody></table>
+</div>
+

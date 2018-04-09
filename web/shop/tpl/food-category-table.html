@@ -1,0 +1,14 @@
+<div class="common-table common-table-sm">
+    <!--简易数据表格-->
+      <table class="m-table m-table-row">
+        <thead>
+            <tr><th>序号</th><th>分类名称</th><th class="">菜品数</th><th class="">状态</th><th class="" width="217">操作</th></tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in list" ng-class="{'even':$index % 2 == 1}"><td>{{x.id}}</td><td>{{x.name}}</td><td>{{x.menuCount}}</td><td>{{x.showType}}</td><td><a class="u-btn u-btn-t2" ui-sref=".edit({id:x.id})">编辑</a><a ui-confirm-tip ok="fn_delete(x.id)" msg="d1" class="u-btn u-btn-t1 j-del" data-id="{{x.id}}">删除</a></td></tr>
+        </tbody>
+    </table>
+    <div class="add-btn">
+        <a ui-sref=".add" class="u-btn u-btn-l1">+增加分类</a>
+    </div>
+</div>

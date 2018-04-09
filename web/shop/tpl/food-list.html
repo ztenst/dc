@@ -1,0 +1,18 @@
+<div class="food-list f-ib">
+    <ul>
+        <li class="item" ng-repeat="x in list">
+            <div class="pic">
+                <img ng-src="{{x.image}}" alt="" />
+            </div>
+            <div class="u-state u-state-{{x.status}}"></div>
+            <div class="opt">
+                <a ui-sref="food.edit({id:x.id})" class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a ui-confirm-tip ok="fn_delete(x.id)" class="u-btn u-btn-sm u-btn-sm-2 j-del">删除</a>
+            </div>
+            <div class="info">
+                <div class="name">{{x.name}}</div>
+                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥{{x.price}}</span> {{x.unit}}</div>
+                <!--<div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>-->
+            </div>
+        </li>
+    </ul>
+</div>

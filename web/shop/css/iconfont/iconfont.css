@@ -1,0 +1,81 @@
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1500521262319'); /* IE9*/
+  src: url('iconfont.eot?t=1500521262319#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1500521262319') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1500521262319') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1500521262319#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-rili:before { content: "\e668"; }
+
+.icon-zuobian:before { content: "\e616"; }
+
+.icon-nv:before { content: "\e688"; }
+
+.icon-search:before { content: "\e63b"; }
+
+.icon-closed:before { content: "\e603"; }
+
+.icon-user-copy:before { content: "\e608"; }
+
+.icon-jiaohuan-copy:before { content: "\e604"; }
+
+.icon-zhangdan:before { content: "\eb87"; }
+
+.icon-add:before { content: "\e64b"; }
+
+.icon-closed2:before { content: "\e609"; }
+
+.icon-nan1:before { content: "\e674"; }
+
+.icon-jian:before { content: "\e61a"; }
+
+.icon-xiaosanjiaoxiangshang:before { content: "\e6ae"; }
+
+.icon-xiaosanjiaoxiangxia:before { content: "\e6af"; }
+
+.icon-statistic:before { content: "\e6f4"; }
+
+.icon-triangle-right:before { content: "\e617"; }
+
+.icon-diancan:before { content: "\e669"; }
+
+.icon-ok:before { content: "\e631"; }
+
+.icon-cantai:before { content: "\e6e9"; }
+
+.icon-pay:before { content: "\e6ea"; }
+
+.icon-pw:before { content: "\e6eb"; }
+
+.icon-exit:before { content: "\e6ec"; }
+
+.icon-huiyuan:before { content: "\e6ed"; }
+
+.icon-right-arrow:before { content: "\e6ee"; }
+
+.icon-set:before { content: "\e6ef"; }
+
+.icon-diancz:before { content: "\e6f0"; }
+
+.icon-querenzhong:before { content: "\e6f1"; }
+
+.icon-zhuohao:before { content: "\e6f2"; }
+
+.icon-caidan:before { content: "\e6f3"; }
+
+.icon-kefu:before { content: "\e6f5"; }
+
+.icon-dinner1:before { content: "\e6f7"; }
+
+.icon-print:before { content: "\e6f6"; }
+

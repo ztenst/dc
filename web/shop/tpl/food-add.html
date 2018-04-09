@@ -1,0 +1,79 @@
+    <div class="u-full-container food-list-container">
+        <div tpl-food-menu></div>
+        <div class="blank25"></div>
+        <form action="" my-validform my-validform-msg ok="fn_edit()">
+            <div class="food-category-form m-form-common">
+                <div class="ele">
+                    <div class="u-label f-ib">菜名</div>
+                    <div class="ipt f-ib">
+                        <input type="text" class="u-ipt u-ipt-form u-ipt-form-long" ng-model="page.data.editInfo.name" datatype="*" nullmsg="菜名不能为空"/>
+                    </div>
+                    <div class="u-errormsg f-ib u-dn">菜名不能为空</div>
+                </div>
+                <div class="ele">
+                    <div class="u-label f-ib">所属分类</div>
+                    <div class="f-ib">
+                        <div ui-select-render data="page.data.menuCates" width="320" value="page.data.editInfo.cate_id" dt="*" nullmsg="请选择分类"></div>
+                    </div>
+                    <div class="u-errormsg f-ib u-dn">菜名不能为空</div>
+                </div>
+                <div class="ele">
+                    <div class="u-label f-ib">价格</div>
+                    <div class="f-ib">
+                        <input type="text" class="u-ipt u-ipt-form" ng-model="page.data.editInfo.price" datatype="*" nullmsg="价格不能为空"/>
+                    </div>
+                    <!--<div class="u-label f-ib">会员价</div>-->
+                    <!--<div class="f-ib">-->
+                        <!--<input type="text" class="u-ipt u-ipt-form"/>-->
+                    <!--</div>-->
+                    <div class="u-errormsg f-ib u-dn">价格不能为空</div>
+                </div>
+                <div class="ele">
+                    <div class="u-label f-ib">单位</div>
+                    <div class="f-ib">
+                        <div ui-select-render data="page.data.units" value="page.data.editInfo.unit_id" width="130" dt="*" nullmsg="请选择单位"></div>
+                    </div>
+                    <div class="u-errormsg f-ib u-dn"></div>
+                </div>
+                <div class="ele">
+                    <div tpl-food-add-attrs data="page.data.editInfo.attrs.sizeAttr"></div>
+                </div>
+                <div class="ele">
+                    <div tpl-food-add-selfattrs data="page.data.editInfo.attrs.customAttr"></div>
+                </div>
+                <div class="ele">
+                    <div class="u-label f-ib">{{page.data.cplb.placeholder}}</div>
+                    <div class="f-ib">
+                        <div ui-checkbox-group-render data="page.data.cplb.list" value="page.data.editInfo.cplb"></div>
+                    </div>
+                </div>
+                <!--图片上传-->
+                <div tpl-food-add-upload data="page.data.editInfo.image"></div>
+            </div>
+            <!--高级-->
+            <div class="category-top-level">
+                <div class="title">高级</div>
+                <div class="config m-form-common">
+                    <div class="blank20"></div>
+                    <div class="ele">
+                        <div class="u-label f-ib">每日份数</div>
+                        <div class="f-ib">
+                            <input type="text" class="u-ipt u-ipt-form" ng-model="page.data.editInfo.stock"/>
+                        </div>
+                        <div class="f-ib">
+                            <div class="kindtip">每日份数设置为0或者不设置，视为不限量供应</div>
+                        </div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">状态</div>
+                        <div ui-radio-group-render data="page.data.status" ng-if="page.data" value="page.data.editInfo.status" dt="*" nullmsg="请选择状态"></div>
+                        <div class="u-errormsg f-ib u-dn"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="blank20"></div>
+            <div class="form-save-btn">
+                <input type="submit" class="u-btn u-btn-l1" value="保存" />
+            </div>
+        </form>
+    </div>

@@ -1,0 +1,16 @@
+        <div class="u-full-container bg-white common-container food-list-container food-category-manage">
+            <div class="blank30"></div>
+            <div class="common-table common-table-sm">
+                <!--简易数据表格-->
+                  <table class="m-table m-table-row">
+                    <thead>
+                        <tr><th>打印时间</th><th>打印任务名称</th><th class="">状态</th><th class="" width="217">操作</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in page.list" ng-class="{'even':$odd}"><td>{{x.time}}</td><td>{{x.taskName}}</td><td>{{x.status}}</td><td><a class="u-btn u-btn-t2" ng-click="fn_reprint(x.id)">重新打印</a></td></tr>
+                    </tbody>
+                </table>
+                <div class="blank20"></div>
+                <div ui-pagination total-page="page.totalPage" current-page="page.currentPage" style="margin-right:20px;"></div>
+            </div>
+        </div>

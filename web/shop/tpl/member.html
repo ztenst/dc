@@ -1,0 +1,37 @@
+<div class="u-full-container bg-white common-container member-container">
+    <div member-search></div>
+    <div class="common-table">
+        <!--简易数据表格-->
+        <table class="m-table m-table-row">
+            <thead>
+            <tr>
+                <th>用户ID</th>
+                <th>用户名</th>
+                <th>手机号</th>
+                <th>就餐次数</th>
+                <th>共计消费</th>
+                <th>最近消费时间</th>
+                <th>操作</th>
+                <th>点餐详情</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in vm.data.list">
+                <td>{{item.id}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.phone}}</td>
+                <td>{{item.consumptionTimes}}</td>
+                <td>{{item.totalPrice > 0 ? '￥'+item.totalPrice : item.totalPrice }}</td>
+                <td>{{item.lastTime}}</td>
+                <td><a class="u-btn u-btn-t2" ng-click="vm.edit(item.id,$event)">编辑</a></td>
+                <td><a class="u-btn u-btn-t3" ui-sref="member.detail({id : item.id})">查看</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <div ui-pagination total-page="vm.data.totalPage" current-page="stateParams.page"></div>
+    </div>
+</div>
+
+<div ui-view="detail"></div>
+
+<div member-edit class="member-hover-dialog f-dn" info-data="vm.info"></div>

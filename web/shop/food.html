@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>菜单</title>
+  <link rel="stylesheet" type="text/css" href="./css/iconfont/iconfont.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./js/jquery-ui-1.12.1.custom/jquery-ui.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./css/main.css" media="all" />
+</head>
+<body>
+    <!--两列右侧自适应布局-->
+    <div class="g-sd">
+        <div class="nav">
+            <ul>
+              <!-- <li><a href=""><i class="iconfont icon-cantai"></i><span>餐 台<span></a></li> -->
+              <li><a href=""><i class="iconfont icon-zhangdan"></i><span>账 单<span></a></li>
+              <li><a href=""><i class="iconfont icon-huiyuan"></i><span>会 员<span></a></li>
+              <li><a href="" class="on"><i class="iconfont icon-caidan"></i><span>菜 单<span></a></li>
+              <li><a href=""><i class="iconfont icon-statistic"></i><span>统 计<span></a></li>
+              <li><a href=""><i class="iconfont icon-set"></i><span>设 置<span></a></li>
+              <li><a href=""><i class="iconfont icon-user-copy"></i><span>管理员<span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="g-mn">
+        <div class="u-main-minwidth">
+            <div class="user-header">
+                <div class="f-fl l-block">
+                    <div class="shopname f-ib">鱼忘七秒</div>
+                    <div class="split f-ib"></div>
+                    <div class="f-ib userinfo">
+                        <div class="uname">鱼忘 【Admin】</div>
+                        <div class="welcome">欢迎您登陆航加 · 点餐商户后台</div>
+                    </div>
+                </div>
+                <div class="f-fr r-block">
+                    <a href="" class="pwd-edit f-ib"><i class="iconfont icon-pw"></i>修改密码</a>
+                    <div class="split f-ib"></div>
+                    <a href="" class="quit f-ib"><i class="iconfont icon-exit"></i>登出</a>
+                </div>
+            </div>
+            <div class="u-full-container food-list-container">
+                <div class="food-menu">
+                    <a href="" class="u-btn on">菜单</a><a href="" class="u-btn">菜单分类</a>
+                </div>
+                <div class="blank20"></div>
+                <div class="food-search f-cb">
+                    <div class="ui-search-box f-ib">
+                        <i class="iconfont icon-search"></i>
+                        <input type="text" placeholder="结账时间查询"/><a href="" class="u-btn u-btn-t2">搜索</a>
+                    </div>
+                    <select class="j-ui-selectmenu" name="" data-width="90"><option value="">全部</option><option value="">显示</option><option value="">估清</option></select>
+                    <select class="j-ui-selectmenu" name="" data-width="90"><option value="">全部</option><option value="">显示</option><option value="">估清</option></select>
+                    <a href="" class="u-btn u-btn-opt u-btn-m1">+添加</a>
+                </div>
+                <div class="food-list f-ib">
+                    <ul>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-1"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-1"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-2"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-1"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-1"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-2"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-1"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-1"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-2"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-1"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-1"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="pic">
+                                <img src="./images/food.png" alt="" />
+                            </div>
+                            <div class="u-state u-state-2"></div>
+                            <div class="opt">
+                                <a class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+                            </div>
+                            <div class="info">
+                                <div class="name">澳洲西冷牛排</div>
+                                <div class="now-price"><span class="u-light">现价：</span><span class="u-high">￥98.00</span> /份</div>
+                                <div class="member-price"><span class="u-light">会员价：</span><span class="u-high">￥ 98.00</span> /份</div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="f-cb">
+                    <div class="u-page page f-fr">
+                        <a href="" class="prev"><i class="iconfont icon-zuobian"></i> 上一页</a>
+                        <a href="" class="next">下一页 <i class="iconfont icon-triangle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">2015 © 化龙巷版权所有.</div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/require.js" data-main="./js/main.js"></script>
+</body>
+</html>

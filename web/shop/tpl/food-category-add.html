@@ -1,0 +1,25 @@
+<div class="u-full-container common-container food-list-container food-category-manage">
+    <div tpl-food-menu></div>
+    <div class="blank30"></div>
+    <div class="m-form-common">
+        <form action="" my-validform my-validform-msg ok="fn_edit()">
+            <div class="ele">
+                <div class="u-label f-ib">分类名称</div>
+                <div class="f-ib">
+                    <input type="text" class="u-ipt u-ipt-form u-ipt-form-long" ng-model="page.data.editInfo.name" datatype="*" nullmsg="名称不能为空"/>
+                </div>
+                <div class="u-errormsg u-dn f-ib"></div>
+            </div>
+            <div class="ele">
+                <div class="u-label f-ib">状态</div>
+                <div ui-radio-group-render data="page.data.showType" ng-if="page.data" value="page.data.editInfo.show_type" dt="*" nullmsg="请选择状态"></div>
+                <div class="u-errormsg u-dn f-ib"></div>
+            </div>
+            <div class="u-errormsg u-abs" ng-if="page.errormsg">{{page.errormsg}}</div>
+            <div class="form-save-btn">
+                <input type="submit" class="u-btn u-btn-l1" value="保存" />
+            </div>
+        </form>
+    </div>
+</div>
+

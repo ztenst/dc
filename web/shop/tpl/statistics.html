@@ -1,0 +1,73 @@
+<div class="u-full-container bg-white common-container statistics-container">
+    <div class="statistics-category f-cb">
+        <ul>
+            <li class="item">
+                <a ui-sref="statistics({ type: 'sales'})" ui-sref-opts="{ inherit: false}" class="u-tab">销售额统计</a>
+            </li>
+            <li class="item">
+                <a ui-sref="statistics({ type: 'menu'})" ui-sref-opts="{ inherit: false}" class="u-tab">菜品销量统计</a>
+            </li>
+            <li class="item">
+                <a ui-sref="statistics({ type: 'rate'})" ui-sref-opts="{ inherit: false}" class="u-tab">翻桌率统计</a>
+            </li>
+            <li class="item">
+                <a ui-sref="statistics({ type: 'desk'})" ui-sref-opts="{ inherit: false}" class="u-tab">座位统计</a>
+            </li>
+        </ul>
+    </div>
+    <div ng-if="vm.isEmpty" class="no-data-content">
+        暂无数据
+    </div>
+
+    <div ng-if="vm.type == 'sales' && vm.data" class="statistics-map" ui-line-echarts show-data="vm.data"
+         series-name="销售额" series-unit="元"></div>
+    <div ng-if="vm.type  == 'menu' && vm.data" class="statistics-map" ui-pie-echarts show-data="vm.data"
+         series-name="价格"></div>
+    <div ng-if="vm.type  == 'rate' && vm.data" class="statistics-map" ui-line-echarts show-data="vm.data"
+         series-name="翻桌率" series-unit="%"></div>
+    <div ng-if="vm.type  == 'desk' && vm.data" class="statistics-map" ui-pie-echarts show-data="vm.data"
+         series-name="座位使用率"></div>
+
+    <div class="blank20"></div>
+    <div class="statistics-time-category f-cb">
+        <ul>
+            <li class="item" ng-if="stateParams.type == 'desk'">
+                <a ng-class="{true: 'u-btn-m1', false: 'u-btn-m2'}[stateParams.day=='jintian']"
+                   ui-sref="statistics({day : 'jintian'})" class="u-btn u-btn-opt">
+                    今天
+                </a>
+            </li>
+            <li class="item" ng-if="stateParams.type == 'desk'">
+                <a ng-class="{true: 'u-btn-m1', false: 'u-btn-m2'}[stateParams.day=='zuotian']"
+                   ui-sref="statistics({day : 'zuotian'})" class="u-btn u-btn-opt">
+                    昨天
+                </a>
+            </li>
+
+            <li class="item">
+                <a ng-class="{true: 'u-btn-m1', false: 'u-btn-m2'}[!stateParams.day || stateParams.day=='benzhou']"
+                   ui-sref="statistics({day : 'benzhou'})" class="u-btn u-btn-opt">
+                    本周
+                </a>
+            </li>
+            <li class="item">
+                <a ng-class="{true: 'u-btn-m1', false: 'u-btn-m2'}[stateParams.day=='shangzhou']"
+                   ui-sref="statistics({day : 'shangzhou'})" class="u-btn u-btn-opt">
+                    上周
+                </a>
+            </li>
+            <li class="item">
+                <a ng-class="{true: 'u-btn-m1', false: 'u-btn-m2'}[stateParams.day=='benyue']"
+                   ui-sref="statistics({day : 'benyue'})" class="u-btn u-btn-opt">
+                    本月
+                </a>
+            </li>
+            <li class="item">
+                <a ng-class="{true: 'u-btn-m1', false: 'u-btn-m2'}[stateParams.day=='shangyue']"
+                   ui-sref="statistics({day : 'shangyue'})" class="u-btn u-btn-opt">
+                    上月
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

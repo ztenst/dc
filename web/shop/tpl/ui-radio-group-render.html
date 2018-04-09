@@ -1,0 +1,6 @@
+<div class="f-ib u-radio-group">
+    <div class="f-ib" ng-repeat="x in data.list">
+        <label class="u-radio" for="r{{$index}}">{{x.name}}</label>
+        <input id="r{{$index}}" type="radio" name="status" ng-value="x.value" ng-model="$parent.value" datatype="{{datatype}}" nullmsg="{{nullmsg}}"/>
+    </div>
+</div>

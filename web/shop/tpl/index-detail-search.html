@@ -1,0 +1,65 @@
+<div class="f-cb main-opt">
+    <div class="r1c1 search-food f-fl">
+        <div class="search-box ui-search-box" ng-class="{'ui-search-box-hover':page.isFocus}">
+            <i class="iconfont icon-search"></i>
+            <input type="text" placeholder="搜索菜品名称" ng-model="page.kw" ng-focus="page.isFocus = true" ng-blur="page.isFocus = false"/><a href="" class="u-btn u-btn-t2">搜索</a>
+            <div class="clear" ng-click="fn_clear_search()" ng-if="page.kw.length > 0"></div>
+        </div>
+        <div class="category-food f-cb">
+            <div class="menu f-fl" ui-scroll>
+                <ul>
+                  <li class="item"><a ng-class="{'on':!page.cid}" ng-click="fn_menu_cid()">全部</a></li>
+                  <li class="item" ng-repeat="x in page.data.menuCate" ><a href="javascript:void(0)" ng-click="fn_menu_cid(x.id)" ng-class="{'on':x.id == page.cid}">{{x.name}}</a></li>
+                </ul>
+            </div>
+            <div class="food-list" ui-scroll>
+                <ul>
+                    <li class="item" ng-repeat="x in page.data.menuList | menufilter:page.cid">
+                        <div class="f-fl range">
+                            <div class="name">{{x.name}}</div>
+                            <div class="price">{{x.price}}</div>
+                        </div>
+                        <div class="format f-fr" ng-if="x.needSelect">
+                            <a ng-click="fn_show_attr(x.id)" class="u-btn u-btn-m7">规格</a>
+                        </div>
+                        <div class="num f-fr" ng-if="x.needSelect==false" ui-disable-select><span class="minus f-ib" ng-click="fn_minus_noattr_num(x.id)"></span><span class="text f-ib">{{fn_get_noattr_num(x.id)}}</span><span class="add f-ib" ng-click="fn_add_noattr_num(x.id)"></span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+       <div class="search-result-food f-cb" ng-if="page.kw.length">
+            <div class="food-list">
+                <ul>
+                    <li class="item" ng-repeat="x in page.data.menuList | filter:{'name':page.kw}">
+                        <div class="f-fl range">
+                            <div class="name f-ib" ng-bind-html="x.name | highlight:page.kw"></div>
+                            <div class="price f-ib">{{x.price}}</div>
+                        </div>
+                        <div class="format f-fr" ng-if="x.needSelect">
+                            <a ng-click="fn_show_attr(x.id)" class="u-btn u-btn-m7">规格</a>
+                        </div>
+                        <div class="num f-fr" ui-disable-select ng-if="x.needSelect==false"><span class="minus f-ib" ng-click="fn_minus_noattr_num(x.id)"></span><span class="text f-ib">{{fn_get_noattr_num(x.id)}}</span><span class="add f-ib" ng-click="fn_add_noattr_num(x.id)"></span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="r1c2">
+        <div class="r-title">已点菜单</div>
+        <div class="food-list">
+            <ul ng-repeat="xlist in page.add_tmp_list">
+                <li class="item" ng-repeat="y in xlist.list" ng-if="y.num > 0">
+                    <div class="f-fl range">
+                        <div class="name">{{xlist.info.name}}</div>
+                        <div class="price rule"><span ng-repeat="z in y.names">{{z.n}} </span></div>
+                    </div>
+                    <div class="num f-fr" ui-disable-select><span class="minus f-ib" ng-click="fn_minus_attr_num(xlist.id,y.id)"></span><span class="text f-ib">{{y.num}}</span><span class="add f-ib" ng-click="fn_add_attr_num(xlist.id,y.id)"></span></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="opt">
+    <a ng-click="fn_add_food()" class="u-btn u-btn-t1">添加</a><a class="u-btn u-btn-t2" ng-click="fn_cancel_food()">取消</a>
+</div>
+<div tpl-index-detail-search-attr></div>

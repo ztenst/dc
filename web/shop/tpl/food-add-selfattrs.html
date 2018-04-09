@@ -1,0 +1,36 @@
+<div class="u-label f-ib u-label_top">自定义规格</div>
+<div class="f-ib">
+    <div class="add-rule">
+        <div ng-repeat="x in data" style="margin-bottom:20px;">
+            <div class="rule-no f-ib">规格{{$index + 1}}</div>
+            <div class="rule-edit f-ib">
+                <div class="rule-name">
+                    <div class="u-ipt-hasclear">
+                        <input type="text" class="u-ipt u-ipt-form" ng-model="x.attrName" placeholder="规格名称"/>
+                        <span class="u-ipt-clear" ng-click="fn_delete_attr($index)"></span>
+                    </div>
+                </div>
+                <div class="rule-types">
+                    <div class="u-ipt-hasclear f-ib" ng-repeat="y in x.attrValues">
+                        <input type="text" class="u-ipt u-ipt-form" ng-model="y.name" placeholder="规格值"/>
+                        <span class="u-ipt-clear" ng-click="fn_delete_value($parent.$index,$index)"></span>
+                    </div>
+                    <!--<div class="u-ipt-hasclear f-ib">-->
+                        <!--<input type="text" class="u-ipt u-ipt-form" value=""/>-->
+                        <!--<span class="u-ipt-clear"></span>-->
+                    <!--</div>-->
+                    <!--<div class="u-ipt-hasclear f-ib">-->
+                        <!--<input type="text" class="u-ipt u-ipt-form" value=""/>-->
+                        <!--<span class="u-ipt-clear"></span>-->
+                    <!--</div>-->
+                    <div class="u-ipt-add f-ib">
+                        <a ng-click="fn_add_value($index)" class="u-btn u-btn-opt u-btn-m5">+增加</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rule-add-btn">
+            <a ng-click="fn_add_attr()" class="u-btn u-btn-opt u-btn-m5">+增加规格</a>
+        </div>
+    </div>
+</div>

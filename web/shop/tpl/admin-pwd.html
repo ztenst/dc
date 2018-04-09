@@ -1,0 +1,25 @@
+<div class="u-full-container pwd-container u-bautify-container">
+    <form class="pwd-form" ui-validform>
+        <div class="ele">
+            <span class="f-ib u-label">用户名</span>
+                        <span class="f-ib">
+                            <input type="text" class="u-ipt u-ipt-s1 u-ipt-s1-1" ng-value="globals.user.username"
+                                   disabled/>
+                        </span>
+        </div>
+        <div class="ele">
+            <span class="f-ib u-label">密<span class="f-ib" style="width:1em"></span>码</span>
+                        <span class="f-ib">
+                            <input type="password" class="u-ipt u-ipt-s1 u-ipt-s1-1" datatype="*5-20" errormsg="至少5个字符"
+                                   nullmsg="请填写密码" ng-model="vm.password"/>
+                            <div class="u-errormsg f-ib f-dn"></div>
+                        </span>
+        </div>
+        <div class="ele btn">
+            <span class="f-ib u-label f-vh">保存</span>
+                        <span class="f-ib">
+                            <input type="submit" class="u-btn u-btn-lg u-btn-l3" value="保存"/>
+                        </span>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>菜单分类</title>
+  <link rel="stylesheet" type="text/css" href="./css/iconfont/iconfont.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./js/jquery-ui-1.12.1.custom/jquery-ui.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./css/main.css" media="all" />
+</head>
+<body>
+    <!--两列右侧自适应布局-->
+    <div class="g-sd">
+        <div class="nav">
+            <ul>
+              <!-- <li><a href=""><i class="iconfont icon-cantai"></i><span>餐 台<span></a></li> -->
+              <li><a href=""><i class="iconfont icon-zhangdan"></i><span>账 单<span></a></li>
+              <li><a href=""><i class="iconfont icon-huiyuan"></i><span>会 员<span></a></li>
+              <li><a href="" class="on"><i class="iconfont icon-caidan"></i><span>菜 单<span></a></li>
+              <li><a href=""><i class="iconfont icon-statistic"></i><span>统 计<span></a></li>
+              <li><a href=""><i class="iconfont icon-set"></i><span>设 置<span></a></li>
+              <li><a href=""><i class="iconfont icon-user-copy"></i><span>管理员<span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="g-mn">
+        <div class="u-main-minwidth">
+            <div class="user-header">
+                <div class="f-fl l-block">
+                    <div class="shopname f-ib">鱼忘七秒</div>
+                    <div class="split f-ib"></div>
+                    <div class="f-ib userinfo">
+                        <div class="uname">鱼忘 【Admin】</div>
+                        <div class="welcome">欢迎您登陆航加 · 点餐商户后台</div>
+                    </div>
+                </div>
+                <div class="f-fr r-block">
+                    <a href="" class="pwd-edit f-ib"><i class="iconfont icon-pw"></i>修改密码</a>
+                    <div class="split f-ib"></div>
+                    <a href="" class="quit f-ib"><i class="iconfont icon-exit"></i>登出</a>
+                </div>
+            </div>
+            <div class="u-full-container food-list-container">
+                <div class="food-menu">
+                    <a href="" class="u-btn">菜单</a><a href="" class="u-btn on">菜单分类</a>
+                </div>
+                <div class="blank25"></div>
+                <div class="food-category-form m-form-common">
+                    <div class="ele">
+                        <div class="u-label f-ib">菜名</div>
+                        <div class="ipt f-ib">
+                            <input type="text" class="u-ipt u-ipt-form u-ipt-form-long"/>
+                        </div>
+                        <div class="u-errormsg f-ib">菜名不能为空</div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">所属分类</div>
+                        <div class="f-ib">
+                            <select class="j-ui-selectmenu" name="" data-width="320"><option value="">牛排</option><option value="">全部</option><option value="">牛排</option><option value="">饮料</option><option value="">冷菜</option><option value="">炒菜</option><option value="">主食</option><option value="">餐具</option></select>
+                        </div>
+                        <div class="u-errormsg f-ib">菜名不能为空</div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">价格</div>
+                        <div class="f-ib">
+                            <input type="text" class="u-ipt u-ipt-form"/>
+                        </div>
+                        <div class="u-label f-ib">会员价</div>
+                        <div class="f-ib">
+                            <input type="text" class="u-ipt u-ipt-form"/>
+                        </div>
+                        <div class="u-errormsg f-ib">价格不能为空</div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">单位</div>
+                        <div class="f-ib">
+                            <select class="j-ui-selectmenu" name="" data-width="130"><option value="">/份</option><option value="">/项</option><option value="">/例</option><option value="">/打</option><option value="">/杯</option><option value="">/扎</option><option value="">+新加</option></select>
+                        </div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">规格</div>
+                        <div class="f-ib">
+                            <!--简易数据表格-->
+                            <table class="m-table m-table-white">
+                                <thead>
+                                    <tr><th class="col-g">尺寸</th><th class="col-g">价格</th><th class="col-g">操作</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>半份</td><td>￥25</td><td><a class="u-btn u-btn-sm u-btn-sm-2">删除</a></td></tr>
+                                    <tr><td>半份</td><td>￥25</td><td><a class="u-btn u-btn-sm u-btn-sm-2">删除</a></td></tr>
+                                    <tr><td>半份</td><td>￥25</td><td><a class="u-btn u-btn-sm u-btn-sm-2">删除</a></td></tr>
+                                </tbody>
+                            </table>
+                            <div class="blank20"></div>
+                            <div>
+                                <a href="" class="u-btn u-btn-opt u-btn-m5">+增加规格</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">自定义规格</div>
+                        <div class="f-ib">
+                            <div class="add-rule">
+                                <div class="rule-no f-ib">规格1</div>
+                                <div class="rule-edit f-ib">
+                                    <div class="rule-name">
+                                        <div class="u-ipt-hasclear">
+                                            <input type="text" class="u-ipt u-ipt-form" value="口味"/>
+                                            <span class="u-ipt-clear"></span>
+                                        </div>
+                                    </div>
+                                    <div class="rule-types">
+                                        <div class="u-ipt-hasclear f-ib">
+                                            <input type="text" class="u-ipt u-ipt-form" value="口味"/>
+                                            <span class="u-ipt-clear"></span>
+                                        </div>
+                                        <div class="u-ipt-hasclear f-ib">
+                                            <input type="text" class="u-ipt u-ipt-form" value="口味"/>
+                                            <span class="u-ipt-clear"></span>
+                                        </div>
+                                        <div class="u-ipt-hasclear f-ib">
+                                            <input type="text" class="u-ipt u-ipt-form" value="口味"/>
+                                            <span class="u-ipt-clear"></span>
+                                        </div>
+                                        <div class="u-ipt-add f-ib">
+                                            <a href="" class="u-btn u-btn-opt u-btn-m5">+增加</a>
+                                        </div>
+                                    </div>
+                                    <div class="rule-add-btn">
+                                        <a href="" class="u-btn u-btn-opt u-btn-m5">+增加规格</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">菜品类别</div>
+                        <div class="f-ib u-checkbox-group">
+                            <label class="u-radio" for="r3">显示</label>
+                            <input id="r3" type="checkbox" name="checkbox-1" checked/>
+                            <label class="u-radio" for="r4">估清</label>
+                            <input id="r4" type="checkbox" name="checkbox-2" />
+                        </div>
+                    </div>
+                    <!--图片上传-->
+                    <div class="upload-pic">
+                        <div class="upload-content">
+                            <div class="pic">
+                                <img src="./images/default-upload.png" alt="" />
+                            </div>
+                            <div class="upload-text">图片上传</div>
+                        </div>
+                        <div class="tip">建议尺寸705x500</div>
+                    </div>
+                </div>
+                <!--高级-->
+                <div class="category-top-level">
+                    <div class="title">高级</div>
+                    <div class="config m-form-common">
+                        <div class="blank20"></div>
+                        <div class="ele">
+                            <div class="u-label f-ib">每日份数</div>
+                            <div class="f-ib">
+                                <input type="text" class="u-ipt u-ipt-form"/>
+                            </div>
+                        </div>
+                        <div class="ele">
+                            <div class="u-label f-ib">状态</div>
+                            <div class="f-ib u-radio-group">
+                                <label class="u-radio" for="r1">显示</label>
+                                <input id="r1" type="radio" name="status" checked/>
+                                <label class="u-radio" for="r2">估清</label>
+                                <input id="r2" type="radio" name="status" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blank20"></div>
+                <div class="form-save-btn">
+                    <a href="" class="u-btn u-btn-l1">保存</a>
+                </div>
+            </div>
+            <div class="footer">2015 © 化龙巷版权所有.</div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/require.js" data-main="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<div class="u-full-container zhuo-container">
+    <ul class="f-cb list_minheight">
+        <li class="item" ng-repeat="x in page.data.desks">
+        <a ui-sref="index.detail({id:x.id})" ui-sref-opts="{'inherit':false}" class="has-state state{{x.status}}" ng-if="x.status != 5 && x.status != 0">
+                <div class="zhuo"><span class="num f{{x.number.length}}">{{x.number}}</span>桌</div>
+                <div class="people">{{x.peopleNumber}}</div>
+                <div class="time">{{x.openTime}}</div>
+                <div class="state-icon"></div>
+                <div class="state-text">{{x.statusStr}}</div>
+                <div class="price"><span class="small">￥</span>{{x.price}}</div>
+            </a>
+            <div ng-if="x.status == 5" class="state-bing" ng-click="fn_union_edit(x.number,x.mergeInfo.mergeDeskNumber)">
+                <div class="zhuo"><span class="num">{{x.number}}</span>桌</div>
+                <div class="state-icon"></div>
+                <div class="state-text">{{x.statusStr}}</div>
+            </div>
+            <a ng-if="x.status == 0" class="state-empty" ui-sref="index.detail({id:x.id})" ui-sref-opts="{'inherit':false}">
+                <div class="inner">
+                    <div class="zhuo"><span class="num">{{x.number}}</span>桌</div>
+                    <div class="state-text">{{x.statusStr}}</div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div ui-pagination total-page="page.data.totalPage" current-page="page.currentPage" style="margin-right:20px;"></div>
+    <div class="zhuo-setting">
+        <div class="c-title"><div ng-click="fn_opendesk()"><i class="iconfont icon-set"></i>餐台设置</div></div>
+        <div class="hr"></div>
+        <div class="opt f-cb">
+            <div class="opt-group1 f-fl">
+                <!--通用自定义按钮-->
+                <a class="u-btn u-btn-opt u-btn-m2" ui-sref="index" ui-sref-opts="{'inherit':false}" ng-class="{'on':isall()}">全部（{{page.data.all}}）</a>
+                <a class="u-btn u-btn-opt u-btn-m2" ui-sref-active="on" ui-sref="index({status:1})" ui-sref-opts="{'inherit':false}">空桌（{{page.data.kongzhuo}}）</a>
+                <a class="u-btn u-btn-opt u-btn-m2" ui-sref-active="on" ui-sref="index({status:2})" ui-sref-opts="{'inherit':false}">已开台（{{page.data.yikaitai}}）</a>
+                <a class="u-btn u-btn-opt u-btn-m2" ui-sref-active="on" ui-sref="index({status:3})" ui-sref-opts="{'inherit':false}">等待确认（{{page.data.daiqueren}}）</a>
+                <a class="u-btn u-btn-opt u-btn-m2" ui-sref-active="on" ui-sref="index({status:4})" ui-sref-opts="{'inherit':false}">预结（{{page.data.yujie}}）</a>
+            </div>
+            <div class="opt-group2 f-fr">
+                <a ng-click="fn_union()" class="u-btn u-btn-opt u-btn-m4">并台</a>
+                <a ng-click="fn_exchange()" class="u-btn u-btn-opt u-btn-m5">换台</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div tpl-zhuosetting ng-if="page.opendesk_show"></div>
+<div tpl-union ng-if="page.union_show" status="page.union_status" desk="page.desk"></div>
+<div tpl-exchange ng-if="page.exchange_show"></div>

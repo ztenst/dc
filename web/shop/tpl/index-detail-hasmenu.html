@@ -1,0 +1,33 @@
+        <div class="caidan-get">
+            <div class="m-hd m-hd-rt m-hd-sm hd">
+                <h2 class="u-tt">已点菜单</h2>
+                <ul>
+                    <li class="on"><a href="javascript:void(0)"  ng-class="{'on':page.menuInfo_addNo == 0}" ng-click="fn_setcat(0)">全部</a></li>
+                    <li ng-repeat="x in page.data.menuCates"><a href="javascript:void(0)" ng-click="fn_setcat(x.addNo)" ng-class="{'on':x.addNo == page.menuInfo_addNo}">{{x.name}}</a></li>
+                </ul>
+            </div>
+            <!--简易数据表格-->
+            <div class="m-table-wrap" ui-scroll ui-autoheight>
+                <div>
+                    <table class="m-table m-table-row">
+                        <thead>
+                            <tr><th class="f-tal">名 称</th><th>数 量</th><th>单 价</th><th>价 格</th><th>操 作</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="row" ng-repeat="x in page.data.menuInfo.list | detailMenu:page.menuInfo_addNo" ng-class="{'row-edit':x.isConfirm==false}"><td class="f-tal"><div class="name">{{x.name}}</div><div class="tags"><span ng-repeat="tag in x.attributes">{{tag}} </span></div></td><td class="num"><span class="text" ng-if="x.isConfirm">x {{x.number}}</span><span ng-if="x.isConfirm == false" ui-disable-select><span class="minus f-ib" ng-click="fn_menu_minus(x.order_menu_id,x.number)"></span><span class="f-ib text">{{x.number}}</span><span class="add f-ib" ng-click="fn_menu_add(x.order_menu_id,x.number)"></span></span></td><td>￥ {{x.price}}</td><td>￥ {{x.totalPrice}}</td><td><a class="u-btn u-btn-t1" ui-confirm-tip ng-if="x.isConfirm" msg="tuicai" ok="fn_cancel(x.order_menu_id)">退菜</a><a class="u-btn u-btn-t2" ui-confirm-tip ng-if="x.isConfirm==false" msg="delete" ok="fn_delete(x.order_menu_id)">删除</a></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="fix-bottom">
+                <!--合计-->
+                <div class="total f-cb">
+                    <div class="num f-fl"><span class="light">合计：</span>共 {{page.data.menuInfo.menuItemCount}} 项</div>
+                    <div class="price f-fr"><span class="light">合计价格：</span><span class="high">￥{{page.data.menuInfo.originalPrice}}</span><span class="space"></span><span class="light">折后价：</span><span class="high">￥{{page.data.menuInfo.discountPrice}}</span></div>
+                </div>
+                <!--打印-->
+                <div class="print">
+                    <a class="u-btn u-btn-opt u-btn-m6" ng-click="fn_print_ticket()">打印小票</a><a class="u-btn u-btn-opt u-btn-m1" ng-click="fn_print_kitchen_ticket()">打印后厨小票</a>
+                </div>
+            </div>
+        </div>

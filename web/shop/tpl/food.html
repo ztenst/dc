@@ -1,0 +1,17 @@
+        <div class="u-full-container food-list-container">
+            <div tpl-food-menu></div>
+            <div class="blank20"></div>
+            <div class="food-search f-cb">
+                <div class="ui-search-box f-ib">
+                    <i class="iconfont icon-search"></i>
+                    <input type="text" placeholder="请输入菜品名称" ng-model="page.kw" ui-keydown-enter callback="fn_search()"/><a ng-click="fn_search()" class="u-btn u-btn-t2">搜索</a>
+                </div>
+                <div ui-select-render data="page.category.menuCate" name="cat" value="params.cat" class="f-ib" change="fn_category_change"></div>
+                <div ui-select-render data="page.category.menuStatus" name="s" value="params.s" class="f-ib" change="fn_category_change" style="margin-right:0;"></div>
+                <a ui-sref=".add" ui-sref-opts="{'inherit':false}" class="u-btn u-btn-opt u-btn-m1">+添加</a>
+            </div>
+            <div tpl-food-list list="page.list"></div>
+            <div class="f-cb">
+                <div ui-pagination total-page="page.totalPage" current-page="page.currentPage"></div>
+            </div>
+        </div>

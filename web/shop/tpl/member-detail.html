@@ -1,0 +1,46 @@
+<div class="m-layer m-layer-show m-layer-dialog member-dialog">
+    <div class="lymask"></div>
+    <table class="lytable">
+        <tbody>
+        <tr>
+            <td class="lytd">
+                <div class="lywrap">
+                    <div class="lyct">
+                        <div class="dialog">
+                            <div class="close" ng-click="vm.goback()"></div>
+                            <div class="common-table bill-table">
+                                <table class="m-table m-table-row">
+                                    <thead>
+                                    <tr>
+                                        <th>订单号</th>
+                                        <th>用餐时间</th>
+                                        <th>用餐人数</th>
+                                        <th>用餐桌号</th>
+                                        <th>操作人</th>
+                                        <th>点餐详情</th>
+                                        <th>点餐价格</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr ng-repeat="item in vm.detail">
+                                        <td>{{item.orderNumber}}</td>
+                                        <td>{{item.time}}</td>
+                                        <td>{{item.itemNumber}}</td>
+                                        <td>{{item.deskNumber}}</td>
+                                        <td>{{item.operateUser}}</td>
+                                        <td>{{item.itemNumber}}项</td>
+                                        <td>{{item.totalPrice}}元</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

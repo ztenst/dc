@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>账单</title>
+  <link rel="stylesheet" type="text/css" href="./css/iconfont/iconfont.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./css/main.css" media="all" />
+</head>
+<body>
+    <!--两列右侧自适应布局-->
+    <div class="g-sd">
+        <div class="nav">
+            <ul>
+              <!-- <li><a href=""><i class="iconfont icon-cantai"></i><span>餐 台<span></a></li> -->
+              <li><a href="" class="on"><i class="iconfont icon-zhangdan"></i><span>账 单<span></a></li>
+              <li><a href=""><i class="iconfont icon-huiyuan"></i><span>会 员<span></a></li>
+              <li><a href=""><i class="iconfont icon-caidan"></i><span>菜 单<span></a></li>
+              <li><a href=""><i class="iconfont icon-statistic"></i><span>统 计<span></a></li>
+              <li><a href=""><i class="iconfont icon-set"></i><span>设 置<span></a></li>
+              <li><a href=""><i class="iconfont icon-user-copy"></i><span>管理员<span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="g-mn">
+        <div class="u-main-minwidth">
+            <div class="user-header">
+                <div class="f-fl l-block">
+                    <div class="shopname f-ib">鱼忘七秒</div>
+                    <div class="split f-ib"></div>
+                    <div class="f-ib userinfo">
+                        <div class="uname">鱼忘 【Admin】</div>
+                        <div class="welcome">欢迎您登陆航加 · 点餐商户后台</div>
+                    </div>
+                </div>
+                <div class="f-fr r-block">
+                    <a href="" class="pwd-edit f-ib"><i class="iconfont icon-pw"></i>修改密码</a>
+                    <div class="split f-ib"></div>
+                    <a href="" class="quit f-ib"><i class="iconfont icon-exit"></i>登出</a>
+                </div>
+            </div>
+            <div class="u-full-container bg-white common-container bill-container">
+                <div class="bill-search f-cb">
+                    <div class="ui-search-box f-fl">
+                        <i class="iconfont icon-search"></i>
+                        <input type="text" placeholder="结账时间查询"/><a href="" class="u-btn u-btn-t2">搜索</a>
+                    </div>
+                    <div class="download-btn f-fr">
+                        <a href="" class="u-btn u-btn-opt u-btn-m1">下载exel报表</a>
+                    </div>
+                </div>
+                <div class="bill-category">
+                    <a href="#" class="u-btn u-btn-opt u-btn-m1">全部</a>
+                    <a href="#" class="u-btn u-btn-opt u-btn-m2">昨日</a>
+                    <a href="#" class="u-btn u-btn-opt u-btn-m2">今日</a>
+                    <a href="#" class="u-btn u-btn-opt u-btn-m2">本周</a>
+                    <a href="#" class="u-btn u-btn-opt u-btn-m3">上周</a>
+                    <a href="#" class="u-btn u-btn-opt u-btn-m2">本月</a>
+                    <a href="#" class="u-btn u-btn-opt u-btn-m2">上月</a>
+                </div>
+                <div class="common-table bill-table">
+                    <!--简易数据表格-->
+                      <table class="m-table m-table-row">
+                        <thead>
+                            <tr><th>订单号</th><th>用餐时间</th><th class="">用餐人数</th><th class="">用餐桌号</th><th class="">操作人</th><th class="">点餐详情</th><th class="">点餐价格</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>
+                            <tr class="even"><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>
+                            <tr><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>
+                            <tr class="even"><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>
+                            <tr><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>
+                            <tr class="even"><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bill-total">共计 <span class="high">￥2391</span> 元</div>
+            </div>
+            <div class="footer">2015 © 化龙巷版权所有.</div>
+        </div>
+    </div>
+    <!--<div class="m-layer m-layer-show m-layer-dialog bill-dialog">-->
+        <!--<div class="lymask"></div>-->
+        <!--<table class="lytable"><tbody><tr><td class="lytd">-->
+        <!--<div class="lywrap">-->
+        <!--<div class="lyct">-->
+            <!--<div class="dialog">-->
+                <!--<div class="close"></div>-->
+                <!--<div class="title">-->
+                    <!--<div class="zhuo-num">台号：<span class="high">08</span></div>-->
+                    <!--<div class="user">鱼忘七秒</div>-->
+                <!--</div>-->
+                <!--<table class="m-table m-table-row">-->
+                    <!--<thead>-->
+                        <!--<tr><th class="f-tal">名称</th><th>数量</th><th>价格</th></tr>-->
+                    <!--</thead>-->
+                    <!--<tbody>-->
+                        <!--<tr>-->
+                            <!--<td class="f-tal"><div class="name">澳洲西冷牛排</div><div class="tags">番茄汁  全熟</div></td>-->
+                            <!--<td>1</td>-->
+                            <!--<td>￥ 98.00</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td class="f-tal"><div class="name">澳洲西冷牛排</div><div class="tags">番茄汁  全熟</div></td>-->
+                            <!--<td>1</td>-->
+                            <!--<td>￥ 98.00</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td class="f-tal"><div class="name">澳洲西冷牛排</div><div class="tags">番茄汁  全熟</div></td>-->
+                            <!--<td>1</td>-->
+                            <!--<td>￥ 98.00</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<td class="f-tal"><div class="name">鲜榨西瓜汁</div></td>-->
+                            <!--<td>1</td>-->
+                            <!--<td>￥ 98.00</td>-->
+                        <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+                <!--<div class="total f-cb">-->
+                    <!--<div class="time f-fl">2017-3-10 10：18</div>-->
+                    <!--<div class="price f-fr">总金额：<span class="high">￥328</span></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--</div></td></tr></tbody></table>-->
+    <!--</div>-->
+    <script type="text/javascript" src="./js/require.js" data-main="./js/main.js"></script>
+</body>
+</html>

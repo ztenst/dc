@@ -1,0 +1,127 @@
+<div class="blank20"></div>
+<div class="setting-container f-cb">
+    <div class="m-col m-col-1">
+        <div class="m-block">
+            <!--基本信息-->
+            <div class="info-block">
+                <div class="u-title u-title-1">基本信息</div>
+                <div class="blank30"></div>
+                <form name="basic-settings" class="m-form-common" ui-validform>
+                    <div class="ele">
+                        <div class="u-label f-ib">店名</div>
+                        <div class="ipt f-ib">
+                            <input type="text" class="u-ipt u-ipt-form u-ipt-form-long" datatype="*" nullmsg="请输入店名"
+                                   ng-model="vm.shopInfo.name"/>
+                            <div class="u-errormsg f-ib f-dn"></div>
+                        </div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">地址</div>
+                        <div class="ipt f-ib">
+                            <input type="text" class="u-ipt u-ipt-form u-ipt-form-long" datatype="*" nullmsg="请输入地址"
+                                   ng-model="vm.shopInfo.address"/>
+                            <div class="u-errormsg f-ib f-dn"></div>
+                        </div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">电话</div>
+                        <div class="ipt f-ib">
+                            <input type="text" class="u-ipt u-ipt-form u-ipt-form-long" datatype="*" nullmsg="请输入电话"
+                                   ng-model="vm.shopInfo.phone"/>
+                            <div class="u-errormsg f-ib f-dn"></div>
+                        </div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">简介</div>
+                        <div class="ipt f-ib">
+                            <input type="text" class="u-ipt u-ipt-form u-ipt-form-long" datatype="*" nullmsg="请输入简介"
+                                   ng-model="vm.shopInfo.description"/>
+                            <div class="u-errormsg f-ib f-dn"></div>
+                        </div>
+                    </div>
+                    <div class="ele btn">
+                        <div class="u-label f-ib f-vh">保存</div>
+                        <div class="f-ib">
+                            <input type="submit" value="保存" class="u-btn u-btn-lg u-btn-l2">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="blank20"></div>
+        <div class="m-block">
+            <div class="search-condition-block">
+                <div class="u-title u-title-2">搜索关键词设置</div>
+                <div class="blank30"></div>
+                <div class="mg-block">
+                    <div class="sub-title">搜索关键词</div>
+                    <div class="u-textarea">
+                        <textarea ng-model="vm.searchKeywords" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="tip">用于前台搜索的时候引导用户搜索菜名的关键词，可设多个并以“ , ”隔开。</div>
+                    <div class="btn">
+                        <a ng-click="vm.saveKeywords()" class="u-btn u-btn-lg u-btn-l2">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-col m-col-2">
+        <div class="m-block">
+            <!--基本信息-->
+            <div class="info-block print_label">
+                <div class="u-title u-title-1">打印机设置</div>
+                <div class="blank30"></div>
+                <form name="printer-settings" class="m-form-common" ui-validform>
+                    <div class="ele">
+                        <div class="u-label f-ib">云打印机服务地址</div>
+                        <div class="ipt f-ib">
+                            <input datatype="url"
+                                   nullmsg="请输入地址"
+                                   errormsg="请输入正确的地址"
+                                   type="text"
+                                   class="u-ipt u-ipt-form u-ipt-form-long"
+                                   ng-model="vm.printerServer"
+                            />
+                            <div class="u-errormsg f-ib f-dn"></div>
+                        </div>
+                    </div>
+                    <div class="ele">
+                        <div class="u-label f-ib">后厨打印机</div>
+                        <div class="f-ib">
+                            <select class="j-ui-selectmenu"
+                                    data-width="320"
+                                    print-server="vm.printerServer"
+                                    kitchen-printer="vm.kitchenPrinter"
+                                    lodop-printer>
+                                <option>请选择打印机</option>
+                            </select>
+                            <div class="u-errormsg f-ib f-dn"></div>
+                        </div>
+                    </div>
+                    <div class="ele btn">
+                        <div class="u-label f-ib f-vh">保存</div>
+                        <div class="f-ib">
+                            <input type="submit" class="u-btn u-btn-lg u-btn-l2" value="保存"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="blank20"></div>
+        <div class="m-block">
+            <div class="help-block">
+                <div class="u-title u-title-3">系统帮助</div>
+                <div class="help-article">
+                    <dl>
+                        <dt>1. 餐台管理</dt>
+                        <dd>1.1 餐台二维码打印</dd>
+                        <dd class="high">1.2 餐台换台操作</dd>
+                        <dd>1.2 餐台加菜操作</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blank20"></div>

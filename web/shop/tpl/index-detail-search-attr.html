@@ -1,0 +1,47 @@
+    <div class="m-layer m-layer-show m-layer-dialog huantai-dialog dialog-w400">
+        <div class="lymask"></div>
+        <table class="lytable"><tbody><tr><td class="lytd">
+        <div class="lywrap">
+        <div class="lyct">
+            <div class="dialog">
+                <div class="title">规格</div>
+                <div class="close" ng-click="fn_close()"></div>
+                <!--多项选择-->
+                <form action="" my-validform>
+                    <div class="multi-select-list">
+                        <dl ng-repeat="x in page.attrFood.attributes.customAttr">
+                            <dt>{{x.attrName}}</dt>
+                            <dd>
+                                <div class="f-ib u-radio-group">
+                                    <span ng-repeat="y in x.attrValues"><label class="u-radio" for="{{y.id}}">{{y.name}}</label><input type="radio" data-n="{{y.name}}" data-k="{{x.attrName}}" name="{{y.pid}}" id="{{y.id}}" datatype="*" nullmsg="请选择{{y.name}}"/></span>
+                                </div>
+                                <!--<ul>-->
+                                    <!--<li class="item" ng-repeat="y in x.attrValues">-->
+                                        <!--<label>{{y.name}}<input type="radio" name="" class="u-dn"/></label>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            </dd>
+                        </dl>
+                        <dl ng-repeat="x in page.attrFood.attributes.sizeAttr">
+                            <dt>{{x.attrName}}</dt>
+                            <dd>
+                                <div class="f-ib u-radio-group">
+                                    <span ng-repeat="y in x.attrValues">
+                                        <label class="u-radio" for="{{y.id}}">{{y.name}}</label>
+                                        <input type="radio" data-n="{{y.name}}" data-k="{{x.attrName}}" name="{{y.pid}}" id="{{y.id}}" datatype="*" nullmsg="请选择{{y.name}}" />
+                                    </span>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </form>
+                <div class="float-justify">
+                    <div class="minus-add-num" ui-disable-select><span class="minus f-ib" ng-click="fn_minus_attr_num()"></span><span class="text f-ib">{{fn_get_current_attrs_num()}}</span><span class="add f-ib" ng-click="fn_add_attr_num()"></span></div>
+                    <div class="u-btn u-btn-ok" ng-click="fn_save_success(page.id)">添加</div>
+                </div>
+                <div class="u-errormsg u-dn" style="margin-left:30px;">请选择所有规格</div>
+                <div class="blank30"></div>
+            </div>
+        </div>
+        </div></td></tr></tbody></table>
+    </div>

@@ -1,0 +1,18 @@
+<div class="u-full-container bg-white common-container food-list-container food-category-manage">
+    <div tpl-food-menu></div>
+    <div class="blank30"></div>
+    <div class="common-table common-table-sm">
+        <!--简易数据表格-->
+          <table class="m-table m-table-row">
+            <thead>
+                <tr><th>序号</th><th>单位名称</th><th class="" width="217">操作</th></tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in page.list" ng-class="{'even':!$even}"><td>{{x.id}}</td><td><input ng-model="x.name" type="text" value="" class="input_sm" ng-blur="fn_edit_item(x.id,x.name)"></td><td><a class="u-btn u-btn-t1 opt-del" ui-confirm-tip ok="fn_del_item(x.id)">删除</a></td></tr>
+            </tbody>
+        </table>
+        <div class="add-btn">
+            <a ng-click="fn_add_item()" class="u-btn u-btn-l1">+添加</a>
+        </div>
+    </div>
+</div>

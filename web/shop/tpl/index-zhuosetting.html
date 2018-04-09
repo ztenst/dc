@@ -1,0 +1,24 @@
+    <div class="m-layer m-layer-show m-layer-dialog zhuo-setting-dialog">
+        <div class="lymask"></div>
+        <table class="lytable"><tbody><tr><td class="lytd">
+        <div class="lywrap">
+        <div class="lyct">
+            <div class="dialog">
+                <div class="title">餐台设置</div>
+                <div class="close" ng-click="fn_close()"></div>
+                <div class="list">
+                    <ul class="f-cb">
+                        <li class="item" ng-repeat="x in page">
+                        <input type="text" class="u-ipt u-ipt-s1" ng-model="x.number" ng-blur="fn_edit_desk(x.number,x.id)" ng-class="{'u-ipt-err':fn_is_desk_err(x.id)}"/> 桌
+                            <span class="delete-icon" ui-confirm-tip ok="fn_del_desk(x.id)"></span>
+                        </li>
+                        <li class="item-add-btn">
+                            <a ng-click="fn_add_desk()">+ 添加餐桌</a>
+                        </li>
+                    </ul>
+                    <div class="u-errormsg u-ipt-err u-errormsg_h1 dialog-desk-u-errormsg_pos" ng-if="page.message">{{page.message}}</div>
+                </div>
+            </div>
+        </div>
+        </div></td></tr></tbody></table>
+    </div>

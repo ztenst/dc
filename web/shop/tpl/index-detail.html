@@ -1,0 +1,65 @@
+<div class="mod-detail g-bd2 f-cb">
+    <div class="m-col m-col-1">
+        <div class="m-block">
+            <div class="caizhuo-info f-cb">
+                <div class="m-info" ng-class="{'f-fl':page.data.deskInfo.needConfirm}">
+                    <div class="num"><span class="big">{{page.data.deskInfo.number}}</span><span class="light">号餐桌   共 {{page.data.deskInfo.peopleNumber}} 人就餐</span></div>
+                    <div class="time"><span class="light">入座时间：</span>{{page.data.deskInfo.openTime}}</div>
+                </div>
+                <div class="aside f-fr" ng-if="page.data.deskInfo.needConfirm">
+                    <div class="state">加菜等待确认 ></div>
+                    <div class="btn">
+                        <a ng-click="fn_confirm_order()" class="u-btn u-btn-l1">确认点单</a>
+                    </div>
+                </div>
+            </div>
+            <div class="blank20"></div>
+            <div tpl-index-detail-hasmenu></div>
+        </div>
+    </div>
+    <div class="m-col m-col-2">
+        <div class="m-block">
+            <div class="row-block r1">
+                <div tpl-index-detail-search></div>
+            </div>
+            <div class="row-block r2">
+                <div class="r2c1 f-fl">
+                    <div class="ercode">
+                        <div class="td">
+                            <div class="img">
+                                <img ng-src="{{page.data.deskInfo.qrCode}}" alt="" />
+                            </div>
+                        </div>
+                        <div class="td t2">
+                            <div class="username">{{page.user.account}}</div>
+                            <div class="btn">
+                                <a ng-href="{{page.data.deskInfo.qrCodeDownload}}" target="_blank" class="u-btn u-btn-t2">保存二维码</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quick-btn">
+                        <div class="row1">
+                            <a ng-click="fn_preprice()" class="u-btn b5">预  结</a>
+                        </div>
+                        <div class="row2">
+                            <a ng-click="fn_finish_pay()" class="u-btn b1">完成付款</a><a ng-click="fn_clear_desk()" class="u-btn b4">离店清台</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="r2c2">
+                    <div class="r-title">点单用户</div>
+                    <div class="user-list f-cb" ui-scroll>
+                        <ul>
+                            <li ng-repeat="x in page.data.deskInfo.orderUsers">
+                                <div class="img"><img ng-src="{{x.avatar}}" alt="" /></div>
+                                <div class="name" ng-class="{'high':x.xiadan}">{{x.username}}</div>
+                                <div class="status" ng-if="x.xiadan">下单</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div tpl-discountprice ng-if="page.preprice_show" op="page.data.menuInfo.originalPrice" dp="page.data.menuInfo.discountPrice" oid="page.data.menuInfo.orderId"></div>

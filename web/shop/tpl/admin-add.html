@@ -1,0 +1,27 @@
+<div class="m-layer m-layer-show m-layer-dialog manage-add-dialog">
+    <div class="lymask"></div>
+    <table class="lytable">
+        <tbody>
+        <tr>
+            <td class="lytd">
+                <div class="lywrap">
+                    <div class="lyct">
+                        <form class="dialog" ui-validform>
+                            <a class="close" ui-sref="admin"></a>
+                            <div class="ele">
+                                <span class="f-ib u-label">用户名</span><span class="f-ib"><input ng-model="vm.user.account" type="text" class="u-ipt u-ipt-s1" datatype="*" nullmsg="请填写用户名" style="width: 140px;border-color:#e8e8e8"/><div class="u-errormsg f-ib f-dn"></div></span>
+                            </div>
+                            <div class="ele">
+                                <span class="f-ib u-label">密<span class="f-ib" style="width:1em"></span>码</span><span class="f-ib"><input ng-model="vm.user.newPassword"  type="password" class="u-ipt u-ipt-s1"  datatype="*5-20" errormsg="至少5个字符" nullmsg="请填写密码" style="width: 140px;border-color:#e8e8e8"/><div class="u-errormsg f-ib f-dn"></div></span>
+                            </div>
+                            <div class="btn">
+                              <input type="submit" class="u-btn u-btn-dialog u-btn-d2" value="确认" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

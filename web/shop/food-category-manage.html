@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>菜单分类</title>
+  <link rel="stylesheet" type="text/css" href="./css/iconfont/iconfont.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./js/jquery-ui-1.12.1.custom/jquery-ui.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./css/main.css" media="all" />
+</head>
+<body>
+    <!--两列右侧自适应布局-->
+    <div class="g-sd">
+        <div class="nav">
+            <ul>
+              <!-- <li><a href=""><i class="iconfont icon-cantai"></i><span>餐 台<span></a></li> -->
+              <li><a href=""><i class="iconfont icon-zhangdan"></i><span>账 单<span></a></li>
+              <li><a href="" class="on"><i class="iconfont icon-huiyuan"></i><span>会 员<span></a></li>
+              <li><a href=""><i class="iconfont icon-caidan"></i><span>菜 单<span></a></li>
+              <li><a href=""><i class="iconfont icon-statistic"></i><span>统 计<span></a></li>
+              <li><a href=""><i class="iconfont icon-set"></i><span>设 置<span></a></li>
+              <li><a href=""><i class="iconfont icon-user-copy"></i><span>管理员<span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="g-mn">
+        <div class="u-main-minwidth">
+            <div class="user-header">
+                <div class="f-fl l-block">
+                    <div class="shopname f-ib">鱼忘七秒</div>
+                    <div class="split f-ib"></div>
+                    <div class="f-ib userinfo">
+                        <div class="uname">鱼忘 【Admin】</div>
+                        <div class="welcome">欢迎您登陆航加 · 点餐商户后台</div>
+                    </div>
+                </div>
+                <div class="f-fr r-block">
+                    <a href="" class="pwd-edit f-ib"><i class="iconfont icon-pw"></i>修改密码</a>
+                    <div class="split f-ib"></div>
+                    <a href="" class="quit f-ib"><i class="iconfont icon-exit"></i>登出</a>
+                </div>
+            </div>
+            <div class="u-full-container bg-white common-container food-list-container food-category-manage">
+                <div class="food-menu">
+                    <a href="" class="u-btn">菜单</a><a href="" class="u-btn on">菜单分类</a>
+                </div>
+                <div class="blank30"></div>
+                <div class="common-table common-table-sm">
+                    <!--简易数据表格-->
+                      <table class="m-table m-table-row">
+                        <thead>
+                            <tr><th>序号</th><th>分类名称</th><th class="">菜品数</th><th class="">状态</th><th class="" width="217">操作</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>06</td><td>冷菜</td><td>5</td><td>显示</td><td><a class="u-btn u-btn-t2">编辑</a><a class="u-btn u-btn-t1 opt-del">删除</a></td></tr>
+                            <tr class="even"><td>06</td><td>冷菜</td><td>5</td><td>显示</td><td><a class="u-btn u-btn-t2">编辑</a><a class="u-btn u-btn-t1 opt-del">删除</a></td></tr>
+                            <tr><td>06</td><td>冷菜</td><td>5</td><td>显示</td><td><a class="u-btn u-btn-t2">编辑</a><a class="u-btn u-btn-t1 opt-del">删除</a></td></tr>
+                            <tr class="even"><td>06</td><td>冷菜</td><td>5</td><td>显示</td><td><a class="u-btn u-btn-t2">编辑</a><a class="u-btn u-btn-t1 opt-del">删除</a></td></tr>
+                            <tr><td>06</td><td>冷菜</td><td>5</td><td>显示</td><td><a class="u-btn u-btn-t2">编辑</a><a class="u-btn u-btn-t1 opt-del">删除</a></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="add-btn">
+                        <a href="" class="u-btn u-btn-l1">+增加规格</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">2015 © 化龙巷版权所有.</div>
+        </div>
+        <div class="custom-container"></div>
+    </div>
+    <script type="text/html" id="confirm-dialog-tpl">
+        <div class="confirm-dialog">
+            <div class="msg">确定删除吗？</div>
+            <div class="btns">
+                <a class="u-btn u-btn-t2">确定</a><a class="u-btn u-btn-t1 dialog-close">取消</a>
+            </div>
+        </div>
+    </script>
+    <!--<div class="m-layer m-layer-show m-layer-dialog member-dialog">-->
+        <!--<div class="lymask"></div>-->
+        <!--<table class="lytable"><tbody><tr><td class="lytd">-->
+        <!--<div class="lywrap">-->
+        <!--<div class="lyct">-->
+            <!--<div class="dialog">-->
+                <!--<div class="close"></div>-->
+                <!--<div class="common-table bill-table">-->
+                    <!--[>简易数据表格<]-->
+                      <!--<table class="m-table m-table-row">-->
+                        <!--<thead>-->
+                            <!--<tr><th>订单号</th><th>用餐时间</th><th class="">用餐人数</th><th class="">用餐桌号</th><th class="">操作人</th><th class="">点餐详情</th><th class="">点餐价格</th></tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                            <!--<tr><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>-->
+                            <!--<tr class="even"><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>-->
+                            <!--<tr><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>-->
+                            <!--<tr class="even"><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>-->
+                            <!--<tr><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>-->
+                            <!--<tr class="even"><td>20170317122359</td><td>2017.03.17 12:01</td><td>4</td><td>1号桌</td><td>鱼忘管理员</td><td>4项</td><td>786元</td></tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--</div></td></tr></tbody></table>-->
+    <!--</div>-->
+
+    <!--<div class="member-hover-dialog">-->
+        <!--<div class="close"></div>-->
+        <!--<div class="ele sex">-->
+            <!--<span class="label-name f-ib">性别</span>-->
+            <!--<div class="f-ib text">-->
+                <!--<label>-->
+                    <!--<input type="radio" name="" />男-->
+                <!--</label>-->
+                <!--<label>-->
+                    <!--<input type="radio" name="" />女-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="ele">-->
+            <!--<span class="label-name f-ib">生日</span>-->
+            <!--<span class="calendar f-ib text">-->
+                <!--<i class="iconfont icon-rili"></i>-->
+            <!--</span>-->
+        <!--</div>-->
+        <!--<div class="zhuo-opt-btns">-->
+            <!--<a href="#" class="u-btn u-btn-dialog u-btn-d1"><i class="iconfont icon-closed2"></i>取消</a><a href="#" class="u-btn u-btn-dialog u-btn-d2"><i class="iconfont icon-ok"></i>确定</a>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--确认框-->
+
+    <script type="text/javascript" src="./js/require.js" data-main="./js/main.js"></script>
+</body>
+</html>
+

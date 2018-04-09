@@ -1,0 +1,20 @@
+<div class="u-full-container manage-container f-cb">
+    <ul>
+        <li class="item" ng-repeat="item in vm.list">
+            <div class="pic">
+                <img src="./images/manage.png"/>
+            </div>
+            <div class="opt">
+                <a ui-sref="admin.add({id:item.id})" class="u-btn u-btn-sm u-btn-sm-1">编辑</a><a ui-confirm-tip
+                                                                                                ok="vm.delAdmin(item.id)"
+                                                                                                class="u-btn u-btn-sm u-btn-sm-2">删除</a>
+            </div>
+            <div class="info">
+                <div class="name">{{item.account}}</div>
+                <div class="last-logintime">最近登录：{{item.lastLogin}}</div>
+            </div>
+        </li>
+        <a class="item add-btn" ui-sref="admin.add"></a>
+    </ul>
+</div>
+<div ui-view="adminadd"></div>

@@ -1,0 +1,6 @@
+<div class="f-ib u-checkbox-group">
+    <div ng-repeat="x in data" class="f-ib">
+        <label class="u-radio" for="r{{x.inputName}}">{{x.name}}</label>
+        <input id="r{{x.inputName}}" type="checkbox" name="{{x.inputName}}" value="1" ng-model="x.value" ng-checked="fn_is_checked($index,x.value)"/>
+    </div>
+</div>
