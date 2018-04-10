@@ -30,7 +30,6 @@ class Controller extends \api\base\Controller
         $session = Yii::$app->user->get($third_session);
 
         $user = UserMember::findOne($session['user_id']);
-
         if(is_null($user)){
             throw new BadRequestHttpException('用户不存在');
         }

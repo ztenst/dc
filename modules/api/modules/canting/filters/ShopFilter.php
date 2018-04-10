@@ -14,19 +14,17 @@ class ShopFilter extends ActionFilter
     public function beforeAction($action)
     {
         $request = Yii::$app->getRequest();
-        if($shop_id = $request->get($this->shop_id)){
-            $arCache = $this->owner->getArCache();
-            $shop = $arCache->getArCache($shop_id, new ShopShop());
-            if(!$shop){
-                 $shop = $arCache->setArCache(ShopShop::find()->status()->whereId($shop_id)->one());
-            }
-            if(is_null($shop)){
-                throw new BadRequestHttpException('商家不存在');
-            }
-            $this->owner->shop = $shop;
-            return true;
+        $shop_id = 1;
+        $arCache = $this->owner->getArCache();
+        $shop = $arCache->getArCache($shop_id, new ShopShop());
+        if(!$shop){
+             $shop = $arCache->setArCache(ShopShop::find()->status()->whereId($shop_id)->one());
         }
-        throw new BadRequestHttpException('参数错误');
+        if(is_null($shop)){
+            throw new BadRequestHttpException('商家不存在');
+        }
+        $this->owner->shop = $shop;
+        return true;
     }
 
 }

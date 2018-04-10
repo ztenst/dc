@@ -20,8 +20,6 @@ class CartController extends Controller
 {
     public $shop;
 
-    private $shopDesk;
-
     private $cart;
 
     private $ws;
@@ -52,34 +50,7 @@ class CartController extends Controller
         if (!parent::beforeAction($action)) {
             return false;
         }
-        $shop_id = Yii::$app->request->get('shop_id','');
-        $desk_id = Yii::$app->request->get('desk_id','');
-        $shop_desk = ShopDesk::find()->shop($shop_id)->whereId($desk_id)->nonEmpty()->one();
-        if(is_null($shop_desk)){
-            throw new BadRequestHttpException('请先选择就餐人数');
-        }
-        $this->shopDesk = $shop_desk;
-        $this->ws = new WsService();
-        $this->cart = new ShopCart(md5($shop_desk->active_desk_id));
-        return true;
-    }
-
-    /**
-     * websocket mvc后端uid和client_id绑定
-     */
-    public function actionBind()
-    {
-        $client_id = Yii::$app->request->getBodyParam('client_id');
-        if(!$client_id){
-            throw new BadRequestHttpException('请求错误');
-        }
-        //绑定
-        try {
-            $this->ws->bindShopUserId($client_id, $this->user->id);
-            $this->ws->joinShopDeskGroup($client_id,$this->shopDesk->id);
-        }catch (\Exception $e){
-            throw new \Exception($e->getMessage());
-        }
+        $this->cart = new ShopCart(md5($this->user->id));
         return true;
     }
 
@@ -110,14 +81,10 @@ class CartController extends Controller
             ];
             $list[] = $item;
         }
-
         return [
-            'list' =>[$this->shop['id'] => [
-                $this->shopDesk->id => $list
-            ]],
+            'list' => $list,
             'count' => $this->cart->count(),
             'totalPrice' => $this->cart->totalPrice(),
-            'desk_number' => $this->shopDesk->number
         ];
     }
 
@@ -129,9 +96,7 @@ class CartController extends Controller
         $qty = (int)Yii::$app->request->getBodyParam('qty');
         //规格 eg: [['name'=>'尺寸','value'=>'半份']]
         $attrs = Yii::$app->request->getBodyParam('attrs');
-
         $menu = $this->loadMenu($id, $qty);
-
         //判断传过来的规格是否带有尺寸 将尺寸的价格替换menu的price
         if($attrs){
             $attrs = $this->formatAttrs($attrs);
@@ -174,15 +139,12 @@ class CartController extends Controller
             $message['menu_qty'] = $qty;
         }
         //socket
-        $this->ws->pushAddCart($this->shopDesk->id,$message);
-
         return true;
     }
 
     public function actionRemove()
     {
         //清空购物车socket
-        $this->ws->pushRemoveCart($this->shopDesk->id);
         return $this->cart->removeAll();
     }
 
@@ -315,7 +277,7 @@ class CartController extends Controller
         $shop_menu = ShopMenu::find()
             ->status()
             ->whereId($id)
-            ->shop($this->shopDesk->shop_id)
+            ->shop($this->shop['id'])
             ->one();
         if(is_null($shop_menu)){
             throw new BadRequestHttpException('菜单不存在');
@@ -352,7 +314,7 @@ class CartController extends Controller
     protected function getAddno()
     {
         $cache = Yii::$app->cache;
-        $commitCacheKey = 'rms_shop_cart_commit_no_'.$this->shopDesk->active_desk_id;
+        $commitCacheKey = 'rms_shop_cart_commit_no_'.$this->user->id;
         $addNo = $cache->get($commitCacheKey);
         if($addNo === false){
             $addNo = 1;
