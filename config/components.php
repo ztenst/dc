@@ -36,21 +36,5 @@ return [
         'assignmentTable' => 'shop_auth_assignment',
         'ruleTable' => 'shop_auth_rule',
         'cacheKey' => 'shop_rbac',
-    ],
-    'cache' => [
-        'class' => 'yii\caching\MemCache',
-        'servers' => [
-            [
-                'host' => 'localhost',
-                'port' => 11211,
-                'weight' => 100,
-            ],
-            [
-                'host' => 'localhost',
-                'port' => 11211,
-                'weight' => 50,
-            ],
-        ],
-        'useMemcached' => false ,
-    ],
+    ]
 ];
