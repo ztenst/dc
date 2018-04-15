@@ -19,8 +19,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        echo '11';die;
-        $this->redirect('/shop/index.php');
+        $this->redirect('/shop');
     }
 
     public function actionT()
