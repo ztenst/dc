@@ -21,7 +21,7 @@ define(['angular'], function () {
                 return AuthService.isLogin();
             }).then(function (res) {
                 AuthService.setUser(res);
-                $state.go('index');
+                $state.go('food');
             });
         })
     }

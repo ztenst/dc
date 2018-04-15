@@ -1,13 +1,7 @@
 define(['angular'],function() {
     angular.module('cjmMod_controller',[])
     //首页
-    .controller('indexMainController',function($scope,interfaceIndex,$stateParams,websocket,resolve_desks,$log,$state) {
-        // function websocket_refresh(){
-        //     interfaceIndex.info($stateParams).then(function(obj) {
-        //         $scope.page.data = obj.data.data;
-        //     });
-        // }
-        $state.go('food');
+    .controller('indexMainController',function($scope,interfaceIndex,$stateParams,websocket,resolve_desks,$log) {
         $scope.isall = function() {
             return !$stateParams.status || $stateParams.status == 0;
         }

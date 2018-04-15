@@ -69,38 +69,38 @@ define(['cjmMod_controller','cjmMod_factory','cjmMod_directive','cjmMod_filter']
             }
         })
         //首页
-        .state('index',{
-            'url' : '/index?status&page',
-            'views' : {
-                'main' : {
-                    'templateUrl' : 'tpl/frame.html'
-                },
-                'submain@index' : {
-                    'templateUrl' : 'tpl/index.html',
-                    'controller' : 'indexMainController'
-                },
-                'sidebar' : {
-                    'templateUrl' : 'tpl/sidebar.html'
-                }
-            },
-            'resolve' : {
-                'resolve_desks' : function(interfaceIndex,$stateParams) {
-                    return interfaceIndex.info($stateParams).then(function(obj) {
-                        return obj.data.data;
-                    });
-                }
-            }
-        })
+        // .state('index',{
+        //     'url' : '/index?status&page',
+        //     'views' : {
+        //         'main' : {
+        //             'templateUrl' : 'tpl/frame.html'
+        //         },
+        //         'submain@index' : {
+        //             'templateUrl' : 'tpl/index.html',
+        //             'controller' : 'indexMainController'
+        //         },
+        //         'sidebar' : {
+        //             'templateUrl' : 'tpl/sidebar.html'
+        //         }
+        //     },
+        //     'resolve' : {
+        //         'resolve_desks' : function(interfaceIndex,$stateParams) {
+        //             return interfaceIndex.info($stateParams).then(function(obj) {
+        //                 return obj.data.data;
+        //             });
+        //         }
+        //     }
+        // })
         //餐桌详情
-        .state('index.detail',{
-            'url' : '/detail/:id',
-            'views' : {
-                'submain' : {
-                    'templateUrl' : 'tpl/index-detail.html',
-                    'controller' : 'indexDetailMainController'
-                }
-            }
-        })
+        // .state('index.detail',{
+        //     'url' : '/detail/:id',
+        //     'views' : {
+        //         'submain' : {
+        //             'templateUrl' : 'tpl/index-detail.html',
+        //             'controller' : 'indexDetailMainController'
+        //         }
+        //     }
+        // })
         //账单页面
         .state('bill',{
             'url' : '/bill?d&begin&end&page',
