@@ -51,8 +51,10 @@ class MenuController extends Controller
 
         $shop_menu_query = ShopMenu::find()
             ->shop($this->shop['id'])
-            ->status()
-            ->likeName($keyword);
+            ->status();
+        if($keyword){
+            $shop_menu_query->linkName($keyword);
+        }   
         $dataProvider = new ActiveDataProvider([
                 'query' => $shop_menu_query,
                 'pagination' => [
