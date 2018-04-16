@@ -7,6 +7,7 @@
 namespace api\modules\canting\controllers;
 
 use api\base\Controller;
+use api\modules\canting\models\ShopMenuCate;
 
 class HomeController extends Controller
 {
