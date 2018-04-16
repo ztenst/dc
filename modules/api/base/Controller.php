@@ -2,6 +2,7 @@
 
 namespace api\base;
 
+use app\base\ArCache;
 use yii\filters\ContentNegotiator;
 use yii\filters\VerbFilter;
 use yii\web\Response;
