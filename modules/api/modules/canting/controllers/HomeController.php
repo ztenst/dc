@@ -7,16 +7,27 @@
 namespace api\modules\canting\controllers;
 
 use api\base\Controller;
+use api\modules\canting\filters\ShopFilter;
 use api\modules\canting\models\ShopMenuCate;
 
 class HomeController extends Controller
 {
+    public $shop;
+
+    public function behaviors()
+    {
+        return array_merge(parent::behaviors(),[
+            'shop' => [
+                'class' => ShopFilter::className()
+            ]
+        ]);
+    }
+    
     public function actionIndex()
     {   
-        $shopId = 1;
         $shop_menu_cate = ShopMenuCate::find()
             ->with('menus')
-            ->shop($shopId)
+            ->shop($this->shop['id'])
             ->andWhere(['show_type'=>ShopMenuCate::SHOW_ALL])
             ->all();
         $menu_cates = [];
