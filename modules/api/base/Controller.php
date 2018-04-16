@@ -9,6 +9,7 @@ use yii\filters\Cors;
 
 class Controller extends \yii\rest\Controller
 {
+    protected $arCache;
     /**
      * 该类负责将Action中return的数据转换成数组
      */
@@ -45,5 +46,11 @@ class Controller extends \yii\rest\Controller
         ];
     }
 
-
+    public function getArCache()
+    {
+        if(!$this->arCache){
+            $this->arCache = new ArCache('rms_shop_arcache_');
+        }
+        return $this->arCache;
+    }
 }

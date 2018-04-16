@@ -11,8 +11,6 @@ class Controller extends \api\base\Controller
 {
     protected $user;
 
-    protected $arCache;
-
     public function beforeAction($action)
     {
         if (!parent::beforeAction($action)) {
@@ -38,11 +36,4 @@ class Controller extends \api\base\Controller
         return true;
     }
 
-    public function getArCache()
-    {
-        if(!$this->arCache){
-            $this->arCache = new ArCache('rms_shop_arcache_');
-        }
-        return $this->arCache;
-    }
 }
