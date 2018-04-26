@@ -58,7 +58,7 @@ class HomeController extends Controller
 
     public function actionPay()
     {
-        // 支付的逻辑
+        // 支付的逻辑 需要总价和用户的openid
         $price = '0.1';
         $openid = '';
         $obj = new WxPay;
