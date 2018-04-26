@@ -26,6 +26,9 @@ class Module extends \yii\base\Module
                     'class' => 'api\modules\canting\components\User',
                     'keyPrefix' => 'rms_applet_user'
                 ],
+                'wxPay' => [
+                    'class' => 'api\modules\canting\components\WxPay',
+                ],
                 'applet' => [
                     'class' => 'api\modules\canting\components\Applet',
                     'appid' => getenv('APPLET_APPID'),

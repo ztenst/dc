@@ -9,6 +9,7 @@ namespace api\modules\canting\controllers;
 use api\base\Controller;
 use api\modules\canting\filters\ShopFilter;
 use api\modules\canting\models\ShopMenuCate;
+use api\modules\canting\components\WxPay;
 
 class HomeController extends Controller
 {
@@ -53,5 +54,16 @@ class HomeController extends Controller
             'shop' => $this->shop,
             'menu_cates' => $menu_cates
         ];
+    }
+
+    public function actionPay()
+    {
+        // 支付的逻辑
+        $price = '0.1';
+        $openid = '';
+        $obj = new WxPay;
+        $res = $obj->setPay('购买支付',$price,$openid);
+        // 返回的是前端要的几个参数
+        return $res;
     }
 }
