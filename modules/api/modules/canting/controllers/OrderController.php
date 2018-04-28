@@ -45,13 +45,13 @@ class OrderController extends Controller
                 throw new BadRequestHttpException(current($user_order->getFirstErrors()));
             }
             foreach ($data as $item){
-                $this->loadMenu($item['id'], $item['qty']);
+                $this->loadMenu($item['id'], $item['num']);
                 $user_order_menu = new UserOrderMenu();
                 $user_order_menu->order_id = $user_order->id;
                 $user_order_menu->menu_id = $item['id'];
                 $user_order_menu->menu_name = $item['name'];
                 $user_order_menu->menu_price = $item['price'];
-                $user_order_menu->menu_num = $item['qty'];
+                $user_order_menu->menu_num = $item['num'];
                 $user_order_menu->menu_attr_info = $item['attrs'];
                 if(!$user_order_menu->save()){
                     throw new BadRequestHttpException(current($user_order_menu->getFirstErrors()));
