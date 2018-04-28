@@ -38,11 +38,7 @@ class UserOrder extends \app\models\ext\UserOrder
                         ];
                         $menus['total_price'] += $menu->menu_price * $menu->menu_num;
                         $menus['total'] += $menu->menu_num;
-                        if ($menu->add_no == 1) {
-                            array_push($menus['menus'], $item);
-                        } elseif ($menu->add_no > 1) {
-                            array_push($menus['add_menus'], $item);
-                        }
+                        array_push($menus['menus'], $item);
                     }
                 }
                 return $menus;
