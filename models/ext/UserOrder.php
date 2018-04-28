@@ -56,22 +56,6 @@ class UserOrder extends \app\models\UserOrder
         ], parent::rules());
     }
 
-    /**
-     * behaviors
-     * @return array
-     */
-    public function behaviors()
-    {
-        return [
-            [
-                'class' => \app\behaviors\ArExpandFieldBehavior::className(),
-                'expandFieldName' => 'config',
-                'fieldDefaultValue' => $this->_defaultConfig,
-                'getter' => 'getConfigField',
-                'setter' => 'setConfigField',
-            ]
-        ];
-    }
 
     /**
      * 获取订单相关的已点菜单
@@ -96,25 +80,6 @@ class UserOrder extends \app\models\UserOrder
         return $this->hasOne(ShopShop::className(),['id' => 'shop_id']);
     }
 
-    /**
-     * 获取关联的餐桌
-     * @return ShopDeskQuery
-     */
-    public function getDesk()
-    {
-        return $this->hasOne(ShopDesk::className(), ['id'=>'desk_id']);
-    }
-
-    /**
-     * 获取对应的active_desk记录
-     * 一个订单只对应一个主的active_desk记录，并桌情况下会生成多个active_desk
-     * @return ShopActiveDeskQuery
-     */
-    public function getActiveDesk()
-    {
-        return $this->hasOne(ShopActiveDesk::className(), ['order_id'=>'id'])
-                    ->andWhere('merge_active_id=0');
-    }
 
     /**
      * 获取最后操作的商家姓名

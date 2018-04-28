@@ -9,15 +9,11 @@ use Yii;
  *
  * @property integer $id
  * @property integer $order_id
- * @property integer $user_id
  * @property integer $menu_id
  * @property string $menu_name
  * @property string $menu_price
  * @property integer $menu_num
  * @property string $menu_attr_info
- * @property integer $add_no
- * @property integer $is_cancel
- * @property integer $is_confirm
  * @property string $config
  * @property integer $updated
  * @property integer $created
@@ -39,7 +35,7 @@ class UserOrderMenu extends \app\base\ActiveRecord
     {
         return [
             [['order_id', 'menu_id', 'menu_name', 'menu_price', 'menu_num', 'created'], 'required'],
-            [['order_id', 'user_id', 'menu_id', 'menu_num', 'add_no', 'is_cancel', 'is_confirm', 'updated', 'created'], 'integer'],
+            [['order_id', 'menu_id', 'menu_num', 'updated', 'created'], 'integer'],
             [['menu_price'], 'number'],
             [['menu_attr_info', 'config'], 'string'],
             [['menu_name'], 'string', 'max' => 30],
@@ -54,16 +50,12 @@ class UserOrderMenu extends \app\base\ActiveRecord
         return [
             'id' => 'ID',
             'order_id' => 'Order ID',
-            'user_id' => 'User ID',
-            'menu_id' => 'Menu ID',
+            'menu_id' => '菜品id',
             'menu_name' => 'Menu Name',
-            'menu_price' => 'Menu Price',
+            'menu_price' => '菜品单价冗余',
             'menu_num' => 'Menu Num',
-            'menu_attr_info' => 'Menu Attr Info',
-            'add_no' => 'Add No',
-            'is_cancel' => 'Is Cancel',
-            'is_confirm' => 'Is Confirm',
-            'config' => 'Config',
+            'menu_attr_info' => '菜品规格属性',
+            'config' => '扩展字段',
             'updated' => 'Updated',
             'created' => 'Created',
         ];

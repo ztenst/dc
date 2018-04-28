@@ -9,13 +9,10 @@ use Yii;
  *
  * @property integer $id
  * @property string $trade_no
- * @property integer $desk_id
- * @property string $desk_number
  * @property integer $shop_id
  * @property integer $user_id
  * @property string $total_price
  * @property integer $status
- * @property string $config
  * @property integer $shop_admin_id
  * @property integer $updated
  * @property integer $created
@@ -36,12 +33,10 @@ class UserOrder extends \app\base\ActiveRecord
     public function rules()
     {
         return [
-            [['trade_no', 'desk_id', 'desk_number', 'shop_id', 'user_id', 'total_price', 'status', 'config', 'created'], 'required'],
-            [['desk_id', 'shop_id', 'user_id', 'status', 'shop_admin_id', 'updated', 'created'], 'integer'],
+            [['trade_no', 'shop_id', 'user_id', 'total_price', 'status', 'created'], 'required'],
+            [['shop_id', 'user_id', 'status', 'shop_admin_id', 'updated', 'created'], 'integer'],
             [['total_price'], 'number'],
-            [['config'], 'string'],
             [['trade_no'], 'string', 'max' => 20],
-            [['desk_number'], 'string', 'max' => 10],
         ];
     }
 
@@ -52,15 +47,12 @@ class UserOrder extends \app\base\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'trade_no' => 'Trade No',
-            'desk_id' => 'Desk ID',
-            'desk_number' => 'Desk Number',
-            'shop_id' => 'Shop ID',
-            'user_id' => 'User ID',
-            'total_price' => 'Total Price',
-            'status' => 'Status',
-            'config' => 'Config',
-            'shop_admin_id' => 'Shop Admin ID',
+            'trade_no' => '订单号',
+            'shop_id' => '店铺',
+            'user_id' => '用户',
+            'total_price' => '总金额',
+            'status' => '订单状态',
+            'shop_admin_id' => '管理员',
             'updated' => 'Updated',
             'created' => 'Created',
         ];
