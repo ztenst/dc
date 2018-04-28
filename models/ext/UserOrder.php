@@ -5,21 +5,15 @@ namespace app\models\ext;
 use Yii;
 
 class UserOrder extends \app\models\UserOrder
-{
-    const STATUS_SUBMIT = 1;
-    const STATUS_CONFIRM = 2;
-    const STATUS_ADD_SUBMIT = 3;
-    const STATUS_ADD_CONFIRM = 4;
-    const STATUS_TO_BE_PAID = 5;
-    const STATUS_PAID = 6;
+{   
+    const  STATUS_NO = 0;
+    const STATUS_PAY = 1;
+    const STATUS_CANCEL = 2;
 
     public static $statusArray = [
-        self::STATUS_SUBMIT => '订单已经提交成功',
-        self::STATUS_CONFIRM => '商家已确认订单',
-        self::STATUS_ADD_SUBMIT => '加菜订单已经提交成功',
-        self::STATUS_ADD_CONFIRM => '商家已确认加菜订单',
-        self::STATUS_TO_BE_PAID => '订单待支付',
-        self::STATUS_PAID => '订单已经支付'
+        self::STATUS_YES => '支付成功',
+        self::STATUS_CANCEL => '支付取消',
+        self::STATUS_NO => '未支付'
     ];
 
     /**

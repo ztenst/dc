@@ -54,7 +54,7 @@ class AuthController extends Controller
         }
         //没有绑定微信开放平台没有unionId数据 先用openId代替unionId
         $attributes = [
-            'unionid' => $data['openId'],
+            'openid' => $data['openId'],
             'nickname' => preg_replace('/\xEE[\x80-\xBF][\x80-\xBF]|\xEF[\x81-\x83][\x80-\xBF]/', '', $data['nickName']),
             'sex' => $data['gender'],
             'avatar' => $data['avatarUrl']
