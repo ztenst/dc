@@ -60,7 +60,9 @@ class WxPay extends Component {
         // $res = $this->post('https://api.mch.weixin.qq.com/pay/unifiedorder',$dataxml);
         $xmlData = $this->arrayToXml($data);
         $return = $this->xmlToArray($this->postXmlCurl($xmlData, 'https://api.mch.weixin.qq.com/pay/unifiedorder', 60));
-        print_r($return);die;
+        if(isset($return['return_code']) && isset($return['return_msg'])){
+            throw new Exception($return['return_msg']);
+        }
         $parameters = array(
             'appId' => $this->appid, //小程序ID
             'timeStamp' => '' . time() . '', //时间戳
