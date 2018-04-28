@@ -11,7 +11,7 @@ class UserOrder extends \app\models\UserOrder
     const STATUS_CANCEL = 2;
 
     public static $statusArray = [
-        self::STATUS_YES => '支付成功',
+        self::STATUS_PAY => '支付成功',
         self::STATUS_CANCEL => '支付取消',
         self::STATUS_NO => '未支付'
     ];
