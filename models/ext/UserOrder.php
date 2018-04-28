@@ -17,15 +17,6 @@ class UserOrder extends \app\models\UserOrder
     ];
 
     /**
-     * @var config字段中的虚拟字段，字段名=>默认值
-     */
-    private $_defaultConfig = [
-        'shopAdminUsername' => '',//最后操作商家用户名
-        'menuNum' => 0,//点菜种类数量
-        'statusRecord' => []
-    ];
-
-    /**
      * 该字段用于mysql使用聚合函数时存放数据的字段
      * 如使用count/sum/average等
      */
@@ -71,74 +62,5 @@ class UserOrder extends \app\models\UserOrder
     public function getShop()
     {
         return $this->hasOne(ShopShop::className(),['id' => 'shop_id']);
-    }
-
-
-    /**
-     * 获取最后操作的商家姓名
-     * @return string
-     */
-    public function getShopAdminUsername($default='(无法获取)')
-    {
-        return $this->getConfigField('shopAdminUsername', $default);
-    }
-
-    /**
-     * 设置最后操作管理员名称
-     * @param string $value
-     */
-    public function setShopAdminUsername($value)
-    {
-        $this->setConfigField('shopAdminUsername', $value);
-    }
-
-    /**
-     * 获取点菜数量
-     * @return integer
-     */
-    public function getMenuNum()
-    {
-        return $this->getConfigField('menuNum');
-    }
-
-    /**
-     * 设置点菜数量
-     * @param integer $num 点菜数量
-     */
-    public function setMenuNum($num)
-    {
-        $this->setConfigField('menuNum', $num);
-    }
-
-    public function setStatusRecord($status = [])
-    {
-        $this->setConfigField('statusRecord',$status);
-    }
-
-    public function getStatusRecord()
-    {
-        return $this->getConfigField('statusRecord');
-    }
-
-    public function addStatusRecord($status)
-    {
-        $statusRecord = $this->getStatusRecord();
-        array_push($statusRecord,[
-            'status' => $status,
-            'time' => time()
-        ]);
-        $this->setStatusRecord($statusRecord);
-    }
-
-    public function getFormatStatusRecord()
-    {
-        $statusRecord = $this->getStatusRecord();
-        if($statusRecord){
-            foreach ($statusRecord as &$status){
-                $status['time'] = date('H:i',$status['time']);
-                $status['msg'] = self::$statusArray[$status['status']];
-            }
-        }
-        return $statusRecord;
     }
 }

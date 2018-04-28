@@ -2,6 +2,7 @@
 namespace api\modules\canting\controllers;
 
 use api\modules\canting\components\WxPay;
+use api\modules\canting\models\ShopMenu;
 use api\modules\canting\models\UserOrder;
 use app\models\ext\ShopActiveDesk;
 use app\models\ext\ShopDesk;
