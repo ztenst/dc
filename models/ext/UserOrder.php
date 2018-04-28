@@ -35,7 +35,6 @@ class UserOrder extends \app\models\UserOrder
     {
         list($usec, $sec) = explode(" ", microtime());
         return array_merge([
-            ['menuNum', 'integer'],
             [['trade_no'], 'default', 'value'=>(float)sprintf('%.0f', (floatval($usec) + floatval($sec)) * 1000).sprintf('%03d', rand(0, 999))],//生成交易号，最好指定使用场景
         ], parent::rules());
     }
