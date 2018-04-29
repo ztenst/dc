@@ -32,7 +32,7 @@ class WxPay extends Component {
     	$this->mch_key = 'yycy2018yycy2018yycy2018yycy2018';
     	$this->out_trade_no = 'wxpay'.time();
     	$this->nonce_str = $this->createNoncestr(20);
-    	$this->notify_url = Yii::$app->request->getHostInfo().'/api/canting/pay/recallPay';
+    	$this->notify_url = Yii::$app->request->getHostInfo().'/api/canting/home/payRecall';
     	$this->spbill_create_ip = $_SERVER["REMOTE_ADDR"];
     }
 

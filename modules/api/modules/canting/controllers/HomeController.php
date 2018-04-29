@@ -66,4 +66,9 @@ class HomeController extends Controller
         // 返回的是前端要的几个参数
         return $res;
     }
+
+    public function actionPayRecall()
+    {
+        # code...
+    }
 }
