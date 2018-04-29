@@ -29,7 +29,7 @@ class WxPay extends Component {
     {
     	$this->appid = 'wx67ff4c94e4ba7507';
     	$this->mch_id = '1501462231';
-    	$this->mch_key = '1501462231';
+    	$this->mch_key = 'yycy2018yycy2018yycy2018yycy2018';
     	$this->out_trade_no = 'wxpay'.time();
     	$this->nonce_str = $this->createNoncestr(20);
     	$this->notify_url = Yii::$app->request->getHostInfo().'/api/canting/pay/recallPay';
