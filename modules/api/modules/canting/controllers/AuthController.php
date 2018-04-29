@@ -59,7 +59,7 @@ class AuthController extends Controller
             'sex' => $data['gender'],
             'avatar' => $data['avatarUrl']
         ];
-        $user_member = UserMember::findByUnionid($data['openId']);
+        $user_member = UserMember::findByOpenid($data['openId']);
         if($user_member === null) {
             $user_member = new UserMember();
         }

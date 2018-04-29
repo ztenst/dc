@@ -13,7 +13,7 @@ use Yii;
  * @property integer $sex
  * @property integer $birthday
  * @property string $avatar
- * @property string $unionid
+ * @property string $openid
  * @property integer $updated
  * @property integer $created
  */
@@ -33,9 +33,9 @@ class UserMember extends \app\base\ActiveRecord
     public function rules()
     {
         return [
-            [['nickname', 'sex', 'avatar', 'unionid', 'created'], 'required'],
+            [['nickname', 'sex', 'avatar', 'openid', 'created'], 'required'],
             [['sex', 'birthday', 'updated', 'created'], 'integer'],
-            [['nickname', 'avatar', 'unionid'], 'string', 'max' => 255],
+            [['nickname', 'avatar', 'openid'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 11],
         ];
     }
@@ -52,7 +52,7 @@ class UserMember extends \app\base\ActiveRecord
             'sex' => 'Sex',
             'birthday' => 'Birthday',
             'avatar' => 'Avatar',
-            'unionid' => 'Unionid',
+            'openid' => 'Openid',
             'updated' => 'Updated',
             'created' => 'Created',
         ];

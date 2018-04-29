@@ -26,9 +26,9 @@ class UserMember extends \app\models\UserMember
         ];
     }
 
-    public static function findByUnionid($unionid)
+    public static function findByOpenid($openid)
     {
-        return self::find()->where(['unionid' => $unionid])->one();
+        return self::find()->where(['openid' => $openid])->one();
     }
 
     public function getOrders()
