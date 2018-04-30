@@ -59,7 +59,7 @@ class OrderController extends Controller
             }
             $transaction->commit();
             $wxPay = new WxPay();
-            $res = $wxPay->setPay('购买支付', $total_price, $this->user->openid);
+            $res = $wxPay->setPay('购买支付', $total_price, $this->user->openid, $user_order->trade_no);
             return $res;
         }catch (BadRequestHttpException $e){
             $transaction->rollBack();

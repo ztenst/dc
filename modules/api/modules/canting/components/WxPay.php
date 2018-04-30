@@ -14,7 +14,7 @@ class WxPay extends Component {
     // $appid=SiteExt::getAttr('qjpz','appid');
     public $mch_id;
     public $body;
-    public $out_trade_no;
+//    public $out_trade_no;
     public $nonce_str;
     public $notify_url;
     public $spbill_create_ip;
@@ -30,13 +30,13 @@ class WxPay extends Component {
     	$this->appid = 'wx67ff4c94e4ba7507';
     	$this->mch_id = '1501462231';
     	$this->mch_key = 'yycy2018yycy2018yycy2018yycy2018';
-    	$this->out_trade_no = 'wxpay'.time();
+//    	$this->out_trade_no = 'wxpay'.time();
     	$this->nonce_str = $this->createNoncestr(20);
     	$this->notify_url = Yii::$app->request->getHostInfo().'/api/canting/home/notify';
     	$this->spbill_create_ip = $_SERVER["REMOTE_ADDR"];
     }
 
-	public function setPay($body='',$price='',$openid='')
+	public function setPay($body='',$price='',$openid='', $no = '')
 	{
 		if(!$body || !$price || !$openid) {
 			return false;
@@ -45,7 +45,7 @@ class WxPay extends Component {
             'appid'=>$this->appid,
             'mch_id'=>$this->mch_id,
             'body'=>$body,
-            'out_trade_no'=>$this->out_trade_no,
+            'out_trade_no'=>$no,
             'nonce_str'=>$this->nonce_str,
             // 'sign'=>$sign,
             'total_fee'=>(int)($price*100),
