@@ -8,7 +8,6 @@ class UserOrder extends \app\models\ext\UserOrder
     {
         return [
             'id',
-            'desk_number',
             'total_price',
             'trade_no',
             'created' => function($model){
