@@ -1,10 +1,12 @@
 <?php
 namespace api\modules\canting\controllers;
 
+use api\modules\canting\models\UserOrder;
 use app\helpers\Storage;
 use app\models\ext\SmsCode;
 use Yii;
 use yii\base\Exception;
+use yii\data\ActiveDataProvider;
 use yii\web\BadRequestHttpException;
 
 class UserController extends Controller
@@ -64,7 +66,22 @@ class UserController extends Controller
     //过往订单
     public function actionOrder()
     {
-        
+        $query = UserOrder::find()->where([
+            'user_id' => $this->user->id,
+            'shop_id' => 1,
+            'status' => UserOrder::STATUS_PAY
+        ]);
+        return new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 10
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'created' => SORT_DESC
+                ]
+            ],
+        ]);
     }
 
     /**

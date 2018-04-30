@@ -14,9 +14,6 @@
                                     <tr>
                                         <th>订单号</th>
                                         <th>用餐时间</th>
-                                        <th>用餐人数</th>
-                                        <th>用餐桌号</th>
-                                        <th>操作人</th>
                                         <th>点餐详情</th>
                                         <th>点餐价格</th>
                                     </tr>
@@ -26,9 +23,6 @@
                                     <tr ng-repeat="item in vm.detail">
                                         <td>{{item.orderNumber}}</td>
                                         <td>{{item.time}}</td>
-                                        <td>{{item.itemNumber}}</td>
-                                        <td>{{item.deskNumber}}</td>
-                                        <td>{{item.operateUser}}</td>
                                         <td>{{item.itemNumber}}项</td>
                                         <td>{{item.totalPrice}}元</td>
                                     </tr>

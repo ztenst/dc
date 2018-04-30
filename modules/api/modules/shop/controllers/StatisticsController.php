@@ -66,7 +66,7 @@ class StatisticsController extends Controller
             case 'benyue':
                 //该查询条件需要与crontab定时脚本中逻辑一致，可直接复制过来稍加修改
                 $todayData = $this->currentShop->getOrders()
-                                    ->status(UserOrder::STATUS_PAID)
+                                    ->status(UserOrder::STATUS_PAY)
                                     ->andWhere('created>=:beginTime',[
                                         ':beginTime' => Timestamp::getDayBeginTime(),
                                     ])

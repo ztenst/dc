@@ -47,16 +47,7 @@ class UserController extends \api\modules\shop\base\Controller
         // $baseQuery = UserOrder::find()->where(UserOrder::tableName().'.user_id='.ShopUser::tableName().'.user_id');
         // $query = ShopUser::find()->with(['user','orders'])->addSelect(['*','consumptionMoney'=>$baseQuery->select('sum(total_price)')]);
 
-        $query = ShopUser::find()->innerJoinWith([
-            'user'=>function($query) use($username){
-                $username && $query->andFilterWhere(['like','nickname',$username.'%', false]);
-            }])->with([
-            'orders'=>function($query){
-            $query->select('id,total_price,created')->andWhere(['status'=>UserOrder::STATUS_PAID])->orderBy('id desc')
-            ->shop($this->currentShopId);
-        }])->shop($this->currentShopId);
-        $query->andFilterWhere([ShopUser::tableName().'.phone'=>$phone]);
-        $query->andFilterWhere(['user_id'=>$id]);
+        $query = UserMember::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -69,10 +60,10 @@ class UserController extends \api\modules\shop\base\Controller
 
         foreach($models as $user) {
             $list[] = [
-                'id' => $user->user_id,
-                'username' => $user->user->nickname,
+                'id' => $user->id,
+                'username' => $user->nickname,
                 'phone' => $user->phone,
-                'consumptionTimes' => count($user->orders),
+                'consumptionTimes' => $user->ordersCount,
                 'totalPrice' => array_sum(ArrayHelper::map($user->orders, 'id', 'total_price')),
                 'lastTime' => ArrayHelper::getValue($user->orders, function($obj, $default){
                     return $obj ? date('Y-m-d H:i', $obj[0]->created) : $default;
@@ -94,27 +85,18 @@ class UserController extends \api\modules\shop\base\Controller
     public function actionUserDetail($id)
     {
         $data = [];
-
-        $user = ShopUser::find()->shop($this->currentShopId)
-                                ->with(['orders'=>function($query) {
-                                    $query->with('activeDesk')->orderBy('created desc');
-                                }])
-                                ->andWhere(['user_id'=>$id])
-                                ->one();
-
-        if(!$user) {
+        $userOrder = UserOrder::find()->shop($this->currentShopId)->andWhere(['user_id' => $id])->all();
+        
+        if(!$userOrder) {
             throw new Exception('用户不存在');
         }
 
-        foreach($user->orders as $order) {
+        foreach($userOrder as $order) {
             $data[] = [
                 'orderNumber' => $order->trade_no,
                 'time' => date('Y-m-d H:i', $order->created),
-                'deskNumber' => $order->desk_number,
-                'operateUser' => $order->shopAdminUsername,
                 'itemNumber' => $order->menuNum,
-                'totalPrice' => $order->total_price,
-                'peopleNumber' => $order->activeDesk->people_num,
+                'totalPrice' => $order->total_price
             ];
         }
 

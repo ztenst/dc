@@ -19,7 +19,7 @@ class BillController extends \api\modules\shop\base\Controller
     public function actionList($d='', $begin=null, $end=null, $download=0)
     {
         $list = [];
-        $query = UserOrder::find()->where(['shop_id'=>$this->currentShopId])->andWhere(['status'=>UserOrder::STATUS_PAID])->orderBy('id desc');
+        $query = UserOrder::find()->where(['shop_id'=>$this->currentShopId])->andWhere(['status'=>UserOrder::STATUS_PAY])->orderBy('id desc');
 
         if($begin) {
             $begin = strtotime($begin);
@@ -60,8 +60,6 @@ class BillController extends \api\modules\shop\base\Controller
         }
         $priceQuery = clone $query;
         $totalPrice = $priceQuery->select('sum(total_price)')->scalar();
-
-        $query = $query->with('activeDesk');
 
         if($download) {
             $excel = new \PHPExcel;
@@ -149,16 +147,12 @@ class BillController extends \api\modules\shop\base\Controller
         $orderIds = ArrayHelper::map($orders, 'id', 'id');
 
         foreach($orders as $order) {
-            $activeDesk = $order->activeDesk;
             $list[] = [
                 'id' => $order->id,
                 'tradeNo' => $order->trade_no,
                 'time' => date('Y-m-d H:i', $order->created),
-                'peopleNumber' => $activeDesk ? $activeDesk->people_num : '(无法获取)',
-                'deskNumber' => $order->desk_number,
-                'operateUser' => $order->shopAdminUsername,
-                'menuNum' => $order->menuNum,
                 'price' => $order->total_price,
+                'menuNum' => $order->menuNum
             ];
         }
         return [
@@ -181,9 +175,6 @@ class BillController extends \api\modules\shop\base\Controller
         }
         $order = UserOrder::find()->shop($this->currentShopId)
                                 ->andWhere(['id'=>$orderId])
-                                ->with(['menus'=>function($query) {
-                                    $query->andWhere('is_confirm=:confirm and is_cancel=:noCancel', [':confirm'=>UserOrderMenu::CONFIRM_YES,':noCancel'=>UserOrderMenu::CANCEL_NO]);
-                                }])
                                 ->one();
         if(!$order) {
             throw new Exception('订单不存在');
@@ -199,7 +190,6 @@ class BillController extends \api\modules\shop\base\Controller
             ];
         }
         return [
-            'deskNumber' => $order->desk_number,
             'created' => date('Y-m-d H:i', $order->created),
             'menuList' => $menuList,
             'price' => $order->total_price,

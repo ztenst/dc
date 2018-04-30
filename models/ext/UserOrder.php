@@ -8,6 +8,8 @@ class UserOrder extends \app\models\UserOrder
 {   
     const  STATUS_NO = 0;
     const STATUS_PAY = 1;
+    
+    private $menuNum;
 
     public static $statusArray = [
         self::STATUS_PAY => '支付成功',
@@ -59,5 +61,13 @@ class UserOrder extends \app\models\UserOrder
     public function getShop()
     {
         return $this->hasOne(ShopShop::className(),['id' => 'shop_id']);
+    }
+    
+    public function getMenuNum()
+    {
+        if(!$this->menuNum){
+            $this->menuNum = $this->getMenus()->count();
+        }
+        return $this->menuNum;
     }
 }
