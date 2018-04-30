@@ -60,12 +60,12 @@ class OrderController extends Controller
             $transaction->commit();
             $wxPay = new WxPay();
             $res = $wxPay->setPay('购买支付', $total_price, $this->user->openid);
+            return $res;
         }catch (BadRequestHttpException $e){
             $transaction->rollBack();
             Yii::error($e->getMessage());
             throw new BadRequestHttpException('订单提交失败');
         }
-        return $res;
     }
 
     /**

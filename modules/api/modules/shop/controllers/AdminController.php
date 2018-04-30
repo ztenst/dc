@@ -62,19 +62,19 @@ class AdminController extends Controller
         $identity = $user->identity;
         $isLogin = !$user->getIsGuest();
         $settings = [];
-        if($isLogin) {
-            $settings = [
-                'printerServer' => $this->currentShop->shopSettings->printerServer,
-                'kitchenPrinter' => $this->currentShop->shopSettings->kitchenPrinter,
-            ];
-        }
+//        if($isLogin) {
+//            $settings = [
+//                'printerServer' => $this->currentShop->shopSettings->printerServer,
+//                'kitchenPrinter' => $this->currentShop->shopSettings->kitchenPrinter,
+//            ];
+//        }
         return [
             'isLogin' => $isLogin,
             'account' => $isLogin ?  $identity->account : '',
             'username' => $isLogin ?  $identity->username : '',
             'shopname' => $isLogin ?  $identity->shop->name : '',
             'qiniuDomain' => $isLogin ? Yii::$app->storage->domain : '',
-            'socketDomain' => $isLogin ? Yii::$app->socket->serverAddress : '',
+//            'socketDomain' => $isLogin ? Yii::$app->socket->serverAddress : '',
             'settings' => $settings,
         ];
     }

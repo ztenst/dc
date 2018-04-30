@@ -6,6 +6,7 @@
  */
 namespace api\modules\canting\controllers;
 
+use Yii;
 use api\base\Controller;
 use api\modules\canting\filters\ShopFilter;
 use api\modules\canting\models\ShopMenuCate;
@@ -56,19 +57,12 @@ class HomeController extends Controller
         ];
     }
 
-    public function actionPay()
-    {
-        // 支付的逻辑 需要总价和用户的openid
-        $price = '0.1';
-        $openid = '';
-        $obj = new WxPay;
-        $res = $obj->setPay('购买支付',$price,$openid);
-        // 返回的是前端要的几个参数
-        return $res;
-    }
-
     public function actionPayRecall()
     {
         # code...
+        $params = Yii::$app->request->getBodyParams();
+        $data = Yii::$app->request->post();
+        Yii::error($params);
+        Yii::error($data);
     }
 }
