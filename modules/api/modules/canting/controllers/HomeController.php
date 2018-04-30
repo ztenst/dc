@@ -6,11 +6,13 @@
  */
 namespace api\modules\canting\controllers;
 
+use api\modules\canting\models\UserOrder;
 use Yii;
 use api\base\Controller;
 use api\modules\canting\filters\ShopFilter;
 use api\modules\canting\models\ShopMenuCate;
 use api\modules\canting\components\WxPay;
+use yii\web\BadRequestHttpException;
 
 class HomeController extends Controller
 {
@@ -61,14 +63,24 @@ class HomeController extends Controller
     {
         $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
         $res = $this->xmlToArray($xml);
-        $encode = json_encode($res);
-        Yii::error($xml);
-        Yii::error($encode);
+        if($res['return_code'] == 'SUCCESS'){
+            if($res['result_code'] == 'SUCCESS'){
+                 $userOrder = UserOrder::findOne(['trade_no' => $res['out_trade_no']]);
+                 if(!$userOrder){
+                     throw new BadRequestHttpException('订单不存在');
+                 }
+                 $userOrder->status = UserOrder::STATUS_PAY;
+                 $userOrder->save();
+                 return true;
+            }   
+            throw new BadRequestHttpException($res['err_code_des']);
+        }
+        throw new BadRequestHttpException($res['return_msg']);
     }
 
     private function xmlToArray($xml) {
         if(!$xml){
-            throw new WxPayException("xml数据异常！");
+            throw new BadRequestHttpException("xml数据异常！");
         }
         //将XML转为array
         //禁止引用外部xml实体
