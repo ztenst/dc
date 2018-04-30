@@ -57,12 +57,17 @@ class HomeController extends Controller
         ];
     }
 
-    public function actionPayRecall()
+    public function actionNotify()
     {
         # code...
         $params = Yii::$app->request->getBodyParams();
         $data = Yii::$app->request->post();
         Yii::error($params);
         Yii::error($data);
+    }
+    
+    public function actionError()
+    {
+        Yii::error('测试');
     }
 }
