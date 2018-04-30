@@ -1,17 +1,10 @@
 <?php
 namespace api\modules\canting\controllers;
 
-use api\modules\canting\models\UserMember;
-use api\modules\canting\models\UserOrder;
 use app\helpers\Storage;
 use app\models\ext\SmsCode;
-use app\models\ext\UserOrderMenu;
-use app\models\ext\UserOrderUser;
 use Yii;
 use yii\base\Exception;
-use yii\data\ActiveDataProvider;
-use yii\data\Pagination;
-use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 
 class UserController extends Controller
@@ -71,35 +64,7 @@ class UserController extends Controller
     //过往订单
     public function actionOrder()
     {
-
-        $query = UserOrderUser::find()
-                ->innerJoinWith(['order'=>function($query){
-                   $query->andWhere([UserOrder::tableName().'.status' => UserOrder::STATUS_PAID]);
-                }])
-                ->where([UserOrderUser::tableName().'.user_id' => $this->user->id]);
-        $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count()]);
-        $models = $query->offset($pages->offset)
-            ->limit($pages->limit)
-            ->all();
-        $ids = ArrayHelper::getColumn($models,['order_id']);
-        //需要做分页
-        $user_order = UserOrder::find()
-                        ->with('menus','shop')
-                        ->where(['in','id',$ids]);
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => $user_order,
-            'pagination' => [
-                'pageSize' => 10
-            ],
-            'sort' => [
-                'defaultOrder' => [
-                    'created' => SORT_DESC
-                ]
-            ],
-        ]);
-        return $dataProvider;
+        
     }
 
     /**

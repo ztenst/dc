@@ -33,7 +33,7 @@ class UserMember extends \app\models\UserMember
 
     public function getOrders()
     {
-        return $this->hasMany(UserOrderUser::className(),['user_id'=>'id']);
+        return $this->hasMany(UserOrder::className(),['user_id'=>'id']);
     }
 
     public function getOrdersCount()
@@ -42,9 +42,7 @@ class UserMember extends \app\models\UserMember
             return null;
         }
         if($this->ordersCount === null){
-            $this->ordersCount = $this->getOrders()->innerJoinWith(['order'=>function($query){
-                $query->andWhere([UserOrder::tableName().'.status' => UserOrder::STATUS_PAID]);
-            }])->count();
+            $this->ordersCount = $this->getOrders()->andWhere([UserOrder::tableName().'.status' => UserOrder::STATUS_PAY])->count();
         }
         return $this->ordersCount;
     }
