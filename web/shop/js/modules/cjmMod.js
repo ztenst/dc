@@ -47,7 +47,7 @@ define(['cjmMod_controller','cjmMod_factory','cjmMod_directive','cjmMod_filter']
         $httpProvider.defaults.transformRequest = [function(data) {
             return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
         }];
-        $urlRouterProvider.otherwise('/index');
+        $urlRouterProvider.otherwise('/food');
         //登录页面
         $stateProvider.state('login',{
             'url' : '/login',
