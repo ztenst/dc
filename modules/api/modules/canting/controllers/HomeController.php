@@ -59,11 +59,22 @@ class HomeController extends Controller
 
     public function actionNotify()
     {
-        # code...
-        $params = Yii::$app->request->getBodyParams();
-        $data = Yii::$app->request->post();
-        Yii::error($params);
-        Yii::error($data);
+        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $res = $this->xmlToArray($xml);
+        $encode = json_encode($res);
+        Yii::error($xml);
+        Yii::error($encode);
+    }
+
+    private function xmlToArray($xml) {
+        if(!$xml){
+            throw new WxPayException("xml数据异常！");
+        }
+        //将XML转为array
+        //禁止引用外部xml实体
+        libxml_disable_entity_loader(true);
+        $values = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        return $values;
     }
     
     public function actionError()
