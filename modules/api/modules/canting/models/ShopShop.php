@@ -21,7 +21,9 @@ class ShopShop extends \app\models\ext\ShopShop
             'address' => function($model){
                 return $model->shopInfo->address;
             },
-            'logo' => '/images/logo.png',
+            'logo' => function($model){
+                return '/images/logo.png';
+            },
             'description' => function($model){
                 return $model->shopInfo->description;
             }
