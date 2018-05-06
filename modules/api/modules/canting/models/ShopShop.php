@@ -22,7 +22,7 @@ class ShopShop extends \app\models\ext\ShopShop
                 return $model->shopInfo->address;
             },
             'logo' => function($model){
-                return '/images/logo.png';
+                return Yii::$app->request->hostInfo.'/images/logo.png';
             },
             'description' => function($model){
                 return $model->shopInfo->description;
